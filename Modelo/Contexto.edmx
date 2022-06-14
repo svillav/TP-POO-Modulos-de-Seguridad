@@ -4,27 +4,124 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Contexto.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="ContextoTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="Contexto.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ContextoStoreContainer">
+    <EntitySet Name="Usuarios" EntityType="Contexto.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Grupo" EntityType="Contexto.Store.Grupo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsuariosGrupo" EntityType="Contexto.Store.UsuariosGrupo" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_UsuariosGrupo_Usuarios" Association="Contexto.Store.FK_UsuariosGrupo_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="UsuariosGrupo" EntitySet="UsuariosGrupo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosGrupo_Grupo" Association="Contexto.Store.FK_UsuariosGrupo_Grupo">
+      <End Role="Grupo" EntitySet="Grupo" />
+      <End Role="UsuariosGrupo" EntitySet="UsuariosGrupo" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grupo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuariosGrupo">
+    <Key>
+      <PropertyRef Name="Usuarios_Id" />
+      <PropertyRef Name="Grupo_Id" />
+    </Key>
+    <Property Name="Usuarios_Id" Type="int" Nullable="false" />
+    <Property Name="Grupo_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_UsuariosGrupo_Usuarios">
+    <End Role="Usuarios" Type="Contexto.Store.Usuarios" Multiplicity="1" />
+    <End Role="UsuariosGrupo" Type="Contexto.Store.UsuariosGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuariosGrupo">
+        <PropertyRef Name="Usuarios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosGrupo_Grupo">
+    <End Role="UsuariosGrupo" Type="Contexto.Store.UsuariosGrupo" Multiplicity="*" />
+    <End Role="Grupo" Type="Contexto.Store.Grupo" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Grupo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuariosGrupo">
+        <PropertyRef Name="Grupo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Contexto" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="ContextoContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Usuarios" EntityType="Contexto.Usuarios" />
+          <EntitySet Name="Grupo" EntityType="Contexto.Grupo" />
+          <AssociationSet Name="UsuariosGrupo" Association="Contexto.UsuariosGrupo">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Grupo" EntitySet="Grupo" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Grupo" Relationship="Contexto.UsuariosGrupo" FromRole="Usuarios" ToRole="Grupo" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Usuarios" Relationship="Contexto.UsuariosGrupo" FromRole="Grupo" ToRole="Usuarios" />
+        </EntityType>
+        <Association Name="UsuariosGrupo">
+          <End Type="Contexto.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <End Type="Contexto.Grupo" Role="Grupo" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="Contexto" />
-        <Alias Key="Target" Value="Contexto.Store" />
-        <EntityContainerMapping CdmEntityContainer="ContextoContainer" StorageEntityContainer="ContextoTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ContextoStoreContainer" CdmEntityContainer="ContextoContainer">
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(Contexto.Usuarios)">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupo">
+      <EntityTypeMapping TypeName="IsTypeOf(Contexto.Grupo)">
+        <MappingFragment StoreEntitySet="Grupo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UsuariosGrupo" TypeName="Contexto.UsuariosGrupo" StoreEntitySet="UsuariosGrupo">
+      <EndProperty Name="Usuarios">
+        <ScalarProperty Name="Id" ColumnName="Usuarios_Id" />
+      </EndProperty>
+      <EndProperty Name="Grupo">
+        <ScalarProperty Name="Id" ColumnName="Grupo_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -38,6 +135,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
