@@ -69,7 +69,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Contexto.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Grupo.cs">
+    <Compile Include="Formularios.cs">
+      <DependentUpon>Contexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios1.cs">
+      <DependentUpon>Contexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Perfiles.cs">
+      <DependentUpon>Contexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Perfiles1.cs">
+      <DependentUpon>Contexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos.cs">
+      <DependentUpon>Contexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos1.cs">
       <DependentUpon>Contexto.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

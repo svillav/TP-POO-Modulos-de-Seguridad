@@ -21,6 +21,6 @@ namespace Modelo
         public string Password { get; set; }
         public string ProfileID { get; set; }
     
-        public virtual Perfil Perfil { get; set; }
+        public virtual Perfiles Perfil { get; set; }
     }
 }
