@@ -12,17 +12,21 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Grupo
+    public partial class Perfil
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Grupo()
+        public Perfil()
         {
             this.Usuarios = new HashSet<Usuarios>();
+            this.Formulario = new HashSet<Formulario>();
         }
     
         public int Id { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuarios> Usuarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Formulario> Formulario { get; set; }
     }
 }

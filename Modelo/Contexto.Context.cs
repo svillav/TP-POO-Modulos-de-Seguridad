@@ -26,6 +26,8 @@ namespace Modelo
         }
     
         public virtual DbSet<Usuarios> Usuarios { get; set; }
-        public virtual DbSet<Grupo> Grupo { get; set; }
+        public virtual DbSet<Perfil> Perfil { get; set; }
+        public virtual DbSet<Formulario> Formulario { get; set; }
+        public virtual DbSet<Permisos> PermisosSet { get; set; }
     }
 }

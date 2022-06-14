@@ -12,15 +12,19 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuarios
+    public partial class Permisos
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Permisos()
+        {
+            this.Formulario = new HashSet<Formulario>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
-        public string DNI { get; set; }
-        public string Password { get; set; }
-        public string ProfileID { get; set; }
+        public string SystemName { get; set; }
     
-        public virtual Perfil Perfil { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Formulario> Formulario { get; set; }
     }
 }
