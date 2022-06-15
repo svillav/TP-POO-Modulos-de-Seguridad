@@ -5,16 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="71487f1ef94c4bcb9ddba73a7593262d" Name="Diagram1" ZoomLevel="108" >
-        <EntityTypeShape EntityType="Contexto.Usuarios" Width="1.5" PointX="2" PointY="1.625" />
-        <EntityTypeShape EntityType="Contexto.Perfiles" Width="1.5" PointX="5.625" PointY="1.625" />
-        <EntityTypeShape EntityType="Contexto.Formularios" Width="1.5" PointX="5.625" PointY="4.375" />
-        <EntityTypeShape EntityType="Contexto.Permisos" Width="1.5" PointX="2" PointY="4.375" />
+        <EntityTypeShape EntityType="Contexto.User" Width="1.5" PointX="2" PointY="1.625" />
+        <EntityTypeShape EntityType="Contexto.ProfileUser" Width="1.5" PointX="5.625" PointY="1.625" />
+        <EntityTypeShape EntityType="Contexto.Formularios" Width="1.5" PointX="9.75" PointY="2.75" />
+        <EntityTypeShape EntityType="Contexto.ProfileTypes" Width="1.5" PointX="5.5" PointY="4.25" IsExpanded="true" />
         <AssociationConnector Association="Contexto.UsuariosPerfil" />
         <AssociationConnector Association="Contexto.PerfilFormulario" />
         <AssociationConnector Association="Contexto.FormularioPermiso" />
         <EntityTypeShape EntityType="Contexto.Formularios1" Width="1.5" PointX="0.75" PointY="7.75" />
         <EntityTypeShape EntityType="Contexto.Perfiles1" Width="1.5" PointX="2.75" PointY="7.75" />
         <EntityTypeShape EntityType="Contexto.Permisos1" Width="1.5" PointX="4.75" PointY="7.75" />
+        <AssociationConnector Association="Contexto.ProfileTypesProfileUser" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

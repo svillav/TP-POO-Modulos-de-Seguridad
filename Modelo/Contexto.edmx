@@ -175,10 +175,10 @@
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Contexto" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="ContextoContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Usuarios" EntityType="Contexto.Usuarios" />
-          <EntitySet Name="Perfil" EntityType="Contexto.Perfiles" />
+          <EntitySet Name="Usuarios" EntityType="Contexto.User" />
+          <EntitySet Name="Perfil" EntityType="Contexto.ProfileUser" />
           <EntitySet Name="Formulario" EntityType="Contexto.Formularios" />
-          <EntitySet Name="PermisosSet" EntityType="Contexto.Permisos" />
+          <EntitySet Name="ProfileTypesSet" EntityType="Contexto.ProfileTypes" />
           <AssociationSet Name="UsuariosPerfil" Association="Contexto.UsuariosPerfil">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Perfil" EntitySet="Perfil" />
@@ -189,32 +189,40 @@
           </AssociationSet>
           <AssociationSet Name="FormularioPermisos" Association="Contexto.FormularioPermiso">
             <End Role="Formulario" EntitySet="Formulario" />
-            <End Role="Permisos" EntitySet="PermisosSet" />
+            <End Role="Permisos" EntitySet="ProfileTypesSet" />
           </AssociationSet>
           <EntitySet Name="Formularios1Set" EntityType="Contexto.Formularios1" />
           <EntitySet Name="Perfiles1Set" EntityType="Contexto.Perfiles1" />
           <EntitySet Name="Permisos1Set" EntityType="Contexto.Permisos1" />
+          <AssociationSet Name="ProfileTypesProfileUser" Association="Contexto.ProfileTypesProfileUser">
+            <End Role="ProfileTypes" EntitySet="ProfileTypesSet" />
+            <End Role="ProfileUser" EntitySet="Perfil" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Usuarios">
+        <EntityType Name="User">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="IDUser" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Perfil" Relationship="Contexto.UsuariosPerfil" FromRole="Usuarios" ToRole="Perfil" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
           <Property Name="DNI" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="ProfileID" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
         </EntityType>
-        <EntityType Name="Perfiles">
+        <EntityType Name="ProfileUser">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="IDUser" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Usuarios" Relationship="Contexto.UsuariosPerfil" FromRole="Perfil" ToRole="Usuarios" />
           <NavigationProperty Name="Formulario" Relationship="Contexto.PerfilFormulario" FromRole="Perfil" ToRole="Formulario" />
-          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="DNI" Type="String" Nullable="false" />
+          <Property Name="ProfileID" Type="String" Nullable="false" />
+          <NavigationProperty Name="ProfileTypes" Relationship="Contexto.ProfileTypesProfileUser" FromRole="ProfileUser" ToRole="ProfileTypes" />
+          <Property Name="ProfileTypesProfileID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Formularios">
           <Key>
@@ -226,26 +234,26 @@
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="SystemName" Type="String" Nullable="false" />
         </EntityType>
-        <EntityType Name="Permisos">
+        <EntityType Name="ProfileTypes">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ProfileID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <NavigationProperty Name="Formulario" Relationship="Contexto.FormularioPermiso" FromRole="Permisos" ToRole="Formulario" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="SystemName" Type="String" Nullable="false" />
+          <Property Name="ProfileType" Type="String" Nullable="false" />
+          <NavigationProperty Name="ProfileUser" Relationship="Contexto.ProfileTypesProfileUser" FromRole="ProfileTypes" ToRole="ProfileUser" />
         </EntityType>
         <Association Name="UsuariosPerfil">
-          <End Type="Contexto.Usuarios" Role="Usuarios" Multiplicity="*" />
-          <End Type="Contexto.Perfiles" Role="Perfil" Multiplicity="1" />
+          <End Type="Contexto.User" Role="Usuarios" Multiplicity="*" />
+          <End Type="Contexto.ProfileUser" Role="Perfil" Multiplicity="1" />
         </Association>
         <Association Name="PerfilFormulario">
-          <End Type="Contexto.Perfiles" Role="Perfil" Multiplicity="*" />
+          <End Type="Contexto.ProfileUser" Role="Perfil" Multiplicity="*" />
           <End Type="Contexto.Formularios" Role="Formulario" Multiplicity="*" />
         </Association>
         <Association Name="FormularioPermiso">
           <End Type="Contexto.Formularios" Role="Formulario" Multiplicity="*" />
-          <End Type="Contexto.Permisos" Role="Permisos" Multiplicity="*" />
+          <End Type="Contexto.ProfileTypes" Role="Permisos" Multiplicity="*" />
         </Association>
         <EntityType Name="Formularios1">
           <Key>
@@ -270,6 +278,18 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SystemName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <Association Name="ProfileTypesProfileUser">
+          <End Type="Contexto.ProfileTypes" Role="ProfileTypes" Multiplicity="1" />
+          <End Type="Contexto.ProfileUser" Role="ProfileUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileTypes">
+              <PropertyRef Name="ProfileID" />
+            </Principal>
+            <Dependent Role="ProfileUser">
+              <PropertyRef Name="ProfileTypesProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -277,9 +297,9 @@
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ContextoStoreContainer" CdmEntityContainer="ContextoContainer">
     <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="IsTypeOf(Contexto.Usuarios)">
+      <EntityTypeMapping TypeName="IsTypeOf(Contexto.User)">
         <MappingFragment StoreEntitySet="Usuarios">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IDUser" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="DNI" ColumnName="DNI" />
@@ -289,10 +309,10 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Perfil">
-      <EntityTypeMapping TypeName="IsTypeOf(Contexto.Perfiles)">
+      <EntityTypeMapping TypeName="IsTypeOf(Contexto.ProfileUser)">
         <MappingFragment StoreEntitySet="Perfil">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDUser" ColumnName="Id" />
+          <ScalarProperty Name="DNI" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -305,12 +325,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PermisosSet">
-      <EntityTypeMapping TypeName="IsTypeOf(Contexto.Permisos)">
+    <EntitySetMapping Name="ProfileTypesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Contexto.ProfileTypes)">
         <MappingFragment StoreEntitySet="PermisosSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+          <ScalarProperty Name="ProfileID" ColumnName="Id" />
+          <ScalarProperty Name="ProfileType" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -342,15 +361,15 @@
     </EntitySetMapping>
     <AssociationSetMapping Name="UsuariosPerfil" TypeName="Contexto.UsuariosPerfil" StoreEntitySet="Usuarios">
       <EndProperty Name="Perfil">
-        <ScalarProperty Name="Id" ColumnName="Perfil_Id" />
+        <ScalarProperty Name="IDUser" ColumnName="Perfil_Id" />
       </EndProperty>
       <EndProperty Name="Usuarios">
-        <ScalarProperty Name="Id" ColumnName="Id" />
+        <ScalarProperty Name="IDUser" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="PerfilFormulario" TypeName="Contexto.PerfilFormulario" StoreEntitySet="PerfilFormulario">
       <EndProperty Name="Perfil">
-        <ScalarProperty Name="Id" ColumnName="Perfil_Id" />
+        <ScalarProperty Name="IDUser" ColumnName="Perfil_Id" />
       </EndProperty>
       <EndProperty Name="Formulario">
         <ScalarProperty Name="Id" ColumnName="Formulario_Id" />
@@ -361,7 +380,7 @@
         <ScalarProperty Name="Id" ColumnName="Formulario_Id" />
       </EndProperty>
       <EndProperty Name="Permisos">
-        <ScalarProperty Name="Id" ColumnName="Permisos_Id" />
+        <ScalarProperty Name="ProfileID" ColumnName="Permisos_Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

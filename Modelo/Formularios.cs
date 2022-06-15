@@ -17,8 +17,8 @@ namespace Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Formularios()
         {
-            this.Perfil = new HashSet<Perfiles>();
-            this.Permisos = new HashSet<Permisos>();
+            this.Perfil = new HashSet<ProfileUser>();
+            this.Permisos = new HashSet<ProfileTypes>();
         }
     
         public int Id { get; set; }
@@ -26,8 +26,8 @@ namespace Modelo
         public string SystemName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Perfiles> Perfil { get; set; }
+        public virtual ICollection<ProfileUser> Perfil { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Permisos> Permisos { get; set; }
+        public virtual ICollection<ProfileTypes> Permisos { get; set; }
     }
 }
