@@ -16,5 +16,11 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Register reg = new Register();
+            reg.Show();
+        }
     }
 }

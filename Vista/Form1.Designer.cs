@@ -88,9 +88,11 @@
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Sign Up";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(629, 194);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(78, 20);
@@ -99,6 +101,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Enabled = false;
             this.label4.Location = new System.Drawing.Point(644, 178);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
