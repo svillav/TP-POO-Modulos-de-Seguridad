@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnSignIn = new System.Windows.Forms.Button();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -36,6 +37,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.chckPW = new System.Windows.Forms.CheckBox();
+            this.picboxShowPW = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxShowPW)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSignIn
@@ -108,11 +112,34 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "CODIGO";
             // 
+            // chckPW
+            // 
+            this.chckPW.AutoSize = true;
+            this.chckPW.Location = new System.Drawing.Point(508, 197);
+            this.chckPW.Name = "chckPW";
+            this.chckPW.Size = new System.Drawing.Size(15, 14);
+            this.chckPW.TabIndex = 8;
+            this.chckPW.UseVisualStyleBackColor = true;
+            this.chckPW.CheckedChanged += new System.EventHandler(this.chckPW_CheckedChanged);
+            // 
+            // picboxShowPW
+            // 
+            this.picboxShowPW.ImageLocation = "Img/ShowPW.png";
+            this.picboxShowPW.InitialImage = ((System.Drawing.Image)(resources.GetObject("picboxShowPW.InitialImage")));
+            this.picboxShowPW.Location = new System.Drawing.Point(529, 245);
+            this.picboxShowPW.Name = "picboxShowPW";
+            this.picboxShowPW.Size = new System.Drawing.Size(164, 137);
+            this.picboxShowPW.TabIndex = 9;
+            this.picboxShowPW.TabStop = false;
+            this.picboxShowPW.Click += new System.EventHandler(this.picboxShowPW_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.picboxShowPW);
+            this.Controls.Add(this.chckPW);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label3);
@@ -123,6 +150,7 @@
             this.Controls.Add(this.btnSignIn);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.picboxShowPW)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,6 +166,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox chckPW;
+        private System.Windows.Forms.PictureBox picboxShowPW;
     }
 }
 
