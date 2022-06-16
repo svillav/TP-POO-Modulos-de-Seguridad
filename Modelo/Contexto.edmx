@@ -198,6 +198,10 @@
             <End Role="ProfileTypes" EntitySet="ProfileTypesSet" />
             <End Role="ProfileUser" EntitySet="Perfil" />
           </AssociationSet>
+          <EntitySet Name="ProductSet" EntityType="Contexto.Product" />
+          <EntitySet Name="HistoricalLogInSet" EntityType="Contexto.HistoricalLogIn" />
+          <EntitySet Name="ProductSoldSet" EntityType="Contexto.ProductSold" />
+          <EntitySet Name="BillSet" EntityType="Contexto.Bill" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -209,7 +213,9 @@
           <Property Name="LastName" Type="String" Nullable="false" />
           <Property Name="DNI" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Userlog" Type="String" Nullable="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Birth" Type="String" Nullable="false" />
           <Property Name="ProfileID" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="ProfileUser">
@@ -290,6 +296,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" Nullable="false" />
+          <Property Name="Factor" Type="String" Nullable="false" />
+          <Property Name="CodeBar" Type="String" Nullable="false" />
+          <Property Name="Category" Type="String" Nullable="false" />
+          <Property Name="Replenisher" Type="String" Nullable="false" />
+          <Property Name="Cost" Type="String" Nullable="false" />
+          <Property Name="CostNow" Type="String" Nullable="false" />
+          <Property Name="Price" Type="String" Nullable="false" />
+          <Property Name="PriceNow" Type="String" Nullable="false" />
+          <Property Name="GainingPercentage" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HistoricalLogIn">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDUser" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="UserLog" Type="String" Nullable="false" />
+          <Property Name="ProfileID" Type="String" Nullable="false" />
+          <Property Name="DateTimeLogIn" Type="String" Nullable="false" />
+          <Property Name="TryConsecutiveNumber" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductSold">
+          <Key>
+            <PropertyRef Name="IdSelling" />
+          </Key>
+          <Property Name="IdSelling" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodeBar" Type="String" Nullable="false" />
+          <Property Name="DateTimeSelling" Type="String" Nullable="false" />
+          <Property Name="ProductName" Type="String" Nullable="false" />
+          <Property Name="Factor" Type="String" Nullable="false" />
+          <Property Name="Cost" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

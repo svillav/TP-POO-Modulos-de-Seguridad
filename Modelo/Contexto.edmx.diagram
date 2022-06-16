@@ -5,17 +5,21 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="71487f1ef94c4bcb9ddba73a7593262d" Name="Diagram1" ZoomLevel="108" >
-        <EntityTypeShape EntityType="Contexto.User" Width="1.5" PointX="2" PointY="1.625" />
-        <EntityTypeShape EntityType="Contexto.ProfileUser" Width="1.5" PointX="5.625" PointY="1.625" />
-        <EntityTypeShape EntityType="Contexto.Formularios" Width="1.5" PointX="9.75" PointY="2.75" />
-        <EntityTypeShape EntityType="Contexto.ProfileTypes" Width="1.5" PointX="5.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Contexto.User" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="Contexto.ProfileUser" Width="1.5" PointX="3.625" PointY="0.875" />
+        <EntityTypeShape EntityType="Contexto.Formularios" Width="1.5" PointX="10.75" PointY="0.5" />
+        <EntityTypeShape EntityType="Contexto.ProfileTypes" Width="1.5" PointX="6.875" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="Contexto.UsuariosPerfil" />
         <AssociationConnector Association="Contexto.PerfilFormulario" />
         <AssociationConnector Association="Contexto.FormularioPermiso" />
-        <EntityTypeShape EntityType="Contexto.Formularios1" Width="1.5" PointX="0.75" PointY="7.75" />
-        <EntityTypeShape EntityType="Contexto.Perfiles1" Width="1.5" PointX="2.75" PointY="7.75" />
-        <EntityTypeShape EntityType="Contexto.Permisos1" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Contexto.Formularios1" Width="1.5" PointX="0.625" PointY="11.5" />
+        <EntityTypeShape EntityType="Contexto.Perfiles1" Width="1.5" PointX="2.625" PointY="11.75" />
+        <EntityTypeShape EntityType="Contexto.Permisos1" Width="1.5" PointX="4.5" PointY="11.625" />
         <AssociationConnector Association="Contexto.ProfileTypesProfileUser" />
+        <EntityTypeShape EntityType="Contexto.Product" Width="1.5" PointX="0.5" PointY="4.125" />
+        <EntityTypeShape EntityType="Contexto.HistoricalLogIn" Width="1.5" PointX="7.875" PointY="4.125" />
+        <EntityTypeShape EntityType="Contexto.ProductSold" Width="1.5" PointX="5.625" PointY="4.125" />
+        <EntityTypeShape EntityType="Contexto.Bill" Width="1.5" PointX="3.375" PointY="4.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

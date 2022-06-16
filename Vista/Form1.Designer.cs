@@ -88,6 +88,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label3.Location = new System.Drawing.Point(369, 286);
             this.label3.Name = "label3";
@@ -126,11 +127,13 @@
             // 
             // picboxShowPW
             // 
+            this.picboxShowPW.Image = global::Vista.Properties.Resources.ShowPW;
             this.picboxShowPW.ImageLocation = "Img/ShowPW.png";
             this.picboxShowPW.InitialImage = ((System.Drawing.Image)(resources.GetObject("picboxShowPW.InitialImage")));
-            this.picboxShowPW.Location = new System.Drawing.Point(529, 190);
+            this.picboxShowPW.Location = new System.Drawing.Point(529, 181);
             this.picboxShowPW.Name = "picboxShowPW";
-            this.picboxShowPW.Size = new System.Drawing.Size(34, 24);
+            this.picboxShowPW.Size = new System.Drawing.Size(51, 45);
+            this.picboxShowPW.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picboxShowPW.TabIndex = 9;
             this.picboxShowPW.TabStop = false;
             this.picboxShowPW.Click += new System.EventHandler(this.picboxShowPW_Click);

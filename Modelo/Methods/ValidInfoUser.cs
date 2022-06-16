@@ -14,7 +14,7 @@ namespace Modelo.Methods
 
         }
         public ValidInfoUser(int validtype, int propertie, string data) //validtype is an enum converted to int, same to propertie
-        {
+        { //CHANGE METHOD TO BOOL 
 
             switch (validtype)
             {

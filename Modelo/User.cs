@@ -19,7 +19,9 @@ namespace Modelo
         public string LastName { get; set; }
         public string DNI { get; set; }
         public string Email { get; set; }
+        public string Userlog { get; set; }
         public string Password { get; set; }
+        public string Birth { get; set; }
         public string ProfileID { get; set; }
     
         public virtual ProfileUser Perfil { get; set; }

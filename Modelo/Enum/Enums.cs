@@ -8,6 +8,7 @@ namespace Modelo.Enum
 {
     public class Enums
     {
+
         public enum ValidType
         {
             CheckDDBB = 0,              //Check in database if it's repeated

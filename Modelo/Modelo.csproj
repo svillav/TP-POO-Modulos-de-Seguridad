@@ -56,7 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Bill.cs">
+      <DependentUpon>Contexto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Class\Person.cs" />
     <Compile Include="Class\Product.cs" />
     <Compile Include="Contexto.Context.cs">
@@ -81,11 +83,20 @@
     <Compile Include="Formularios1.cs">
       <DependentUpon>Contexto.tt</DependentUpon>
     </Compile>
+    <Compile Include="HistoricalLogIn.cs">
+      <DependentUpon>Contexto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Methods\ValidInfoUser.cs" />
     <Compile Include="Perfiles1.cs">
       <DependentUpon>Contexto.tt</DependentUpon>
     </Compile>
     <Compile Include="Permisos1.cs">
+      <DependentUpon>Contexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>Contexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductSold.cs">
       <DependentUpon>Contexto.tt</DependentUpon>
     </Compile>
     <Compile Include="ProfileTypes.cs">

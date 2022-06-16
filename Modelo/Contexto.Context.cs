@@ -32,5 +32,9 @@ namespace Modelo
         public virtual DbSet<Formularios1> Formularios1Set { get; set; }
         public virtual DbSet<Perfiles1> Perfiles1Set { get; set; }
         public virtual DbSet<Permisos1> Permisos1Set { get; set; }
+        public virtual DbSet<Product> ProductSet { get; set; }
+        public virtual DbSet<HistoricalLogIn> HistoricalLogInSet { get; set; }
+        public virtual DbSet<ProductSold> ProductSoldSet { get; set; }
+        public virtual DbSet<Bill> BillSet { get; set; }
     }
 }
