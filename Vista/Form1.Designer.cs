@@ -57,6 +57,7 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(217, 20);
             this.txtUser.TabIndex = 1;
+            this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtPassword
             // 
@@ -64,6 +65,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(217, 20);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -126,9 +128,9 @@
             // 
             this.picboxShowPW.ImageLocation = "Img/ShowPW.png";
             this.picboxShowPW.InitialImage = ((System.Drawing.Image)(resources.GetObject("picboxShowPW.InitialImage")));
-            this.picboxShowPW.Location = new System.Drawing.Point(529, 245);
+            this.picboxShowPW.Location = new System.Drawing.Point(529, 190);
             this.picboxShowPW.Name = "picboxShowPW";
-            this.picboxShowPW.Size = new System.Drawing.Size(164, 137);
+            this.picboxShowPW.Size = new System.Drawing.Size(34, 24);
             this.picboxShowPW.TabIndex = 9;
             this.picboxShowPW.TabStop = false;
             this.picboxShowPW.Click += new System.EventHandler(this.picboxShowPW_Click);

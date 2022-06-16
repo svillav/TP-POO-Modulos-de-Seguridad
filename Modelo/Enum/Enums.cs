@@ -24,5 +24,16 @@ namespace Modelo.Enum
             Password = 5,
             Birth = 6
         }
+        public enum ProfileUser
+        {
+            SuperUser = 0,   
+            Admin = 1,
+            Chief = 2,
+            User = 3,
+            Visitor = 4,
+            UnAsignated = 99,
+
+
+        }
     }
 }
