@@ -39,7 +39,7 @@ namespace Vista
 
         private void picboxShowPW_Click(object sender, EventArgs e)
         {
-            picboxShowPW.ImageLocation = "/Img/ShowPW.png";
+            picboxShowPW.ImageLocation = "Img/ShowPW.png";
         }
     }
 }

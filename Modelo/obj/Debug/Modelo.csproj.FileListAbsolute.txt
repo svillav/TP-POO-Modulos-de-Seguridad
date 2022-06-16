@@ -1,0 +1,12 @@
+C:\Users\Don Cofre\Source\Repos\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\Modelo.dll.config
+C:\Users\Don Cofre\Source\Repos\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\Modelo.dll
+C:\Users\Don Cofre\Source\Repos\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Don Cofre\Source\Repos\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\EntityFramework.dll
+C:\Users\Don Cofre\Source\Repos\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Don Cofre\Source\Repos\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\EntityFramework.xml
+C:\Users\Don Cofre\Source\Repos\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Don Cofre\Source\Repos\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\Users\Don Cofre\Source\Repos\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Don Cofre\Source\Repos\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+C:\Users\Don Cofre\Source\Repos\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.dll
+C:\Users\Don Cofre\Source\Repos\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.pdb
