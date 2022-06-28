@@ -80,6 +80,13 @@ namespace Vista
                     usuario.Contraseña = txtPassword.Text;
                     //person.ProfileID = 99;
                     //person.BirthDate = DateTime.Parse(txtDateOfBirth);
+                    List<Perfil> listaPerfiles = ControladoraPerfiles.obtener_instancia().Listar_Perfiles();
+                    Perfil cliente = listaPerfiles.Find(p => p.Nombre == "Cliente");
+                 
+                    usuario.Perfil = cliente;
+                    MessageBox.Show(usuario.Perfil.Id.ToString());
+
+                    ControladoraUsuarios.obtener_instancia().Agregar_Usuario(usuario);
 
                     MessageBox.Show("Usuario creado");
                 }
@@ -93,8 +100,6 @@ namespace Vista
             {
                 MessageBox.Show("Complete los campos Nombre \n email \n contraseña \n tipo de usuario");
             }
-
-
 
         }
 
