@@ -4,10 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista", "Vista\Vista.csproj", "{89BDCEDB-1FC1-40FE-8505-2B667BCB0AC6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{29C1F356-7DEE-47D2-972F-9DCA2BEC64BA} = {29C1F356-7DEE-47D2-972F-9DCA2BEC64BA}
+		{90B76A26-D815-4E95-888D-87635B8A9B57} = {90B76A26-D815-4E95-888D-87635B8A9B57}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controladora", "Controladora\Controladora.csproj", "{90B76A26-D815-4E95-888D-87635B8A9B57}"
 	ProjectSection(ProjectDependencies) = postProject
-		{89BDCEDB-1FC1-40FE-8505-2B667BCB0AC6} = {89BDCEDB-1FC1-40FE-8505-2B667BCB0AC6}
+		{29C1F356-7DEE-47D2-972F-9DCA2BEC64BA} = {29C1F356-7DEE-47D2-972F-9DCA2BEC64BA}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{29C1F356-7DEE-47D2-972F-9DCA2BEC64BA}"

@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.btnSignIn = new System.Windows.Forms.Button();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.SingUp = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.chckPW = new System.Windows.Forms.CheckBox();
             this.picboxShowPW = new System.Windows.Forms.PictureBox();
+            this.testLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picboxShowPW)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@
             this.btnSignIn.TabIndex = 0;
             this.btnSignIn.Text = "Sign In";
             this.btnSignIn.UseVisualStyleBackColor = true;
+            this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
             // txtUser
             // 
@@ -85,17 +87,17 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             // 
-            // label3
+            // SingUp
             // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label3.Location = new System.Drawing.Point(369, 286);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Sign Up";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.SingUp.AutoSize = true;
+            this.SingUp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SingUp.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.SingUp.Location = new System.Drawing.Point(369, 286);
+            this.SingUp.Name = "SingUp";
+            this.SingUp.Size = new System.Drawing.Size(45, 13);
+            this.SingUp.TabIndex = 5;
+            this.SingUp.Text = "Sign Up";
+            this.SingUp.Click += new System.EventHandler(this.SignUp_Click);
             // 
             // txtCodigo
             // 
@@ -127,7 +129,6 @@
             // 
             // picboxShowPW
             // 
-            this.picboxShowPW.Image = global::Vista.Properties.Resources.ShowPW;
             this.picboxShowPW.ImageLocation = "Img/ShowPW.png";
             this.picboxShowPW.InitialImage = ((System.Drawing.Image)(resources.GetObject("picboxShowPW.InitialImage")));
             this.picboxShowPW.Location = new System.Drawing.Point(529, 181);
@@ -138,22 +139,32 @@
             this.picboxShowPW.TabStop = false;
             this.picboxShowPW.Click += new System.EventHandler(this.picboxShowPW_Click);
             // 
-            // Form1
+            // testLabel
+            // 
+            this.testLabel.AutoSize = true;
+            this.testLabel.Location = new System.Drawing.Point(505, 286);
+            this.testLabel.Name = "testLabel";
+            this.testLabel.Size = new System.Drawing.Size(50, 13);
+            this.testLabel.TabIndex = 10;
+            this.testLabel.Text = "testLabel";
+            // 
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.testLabel);
             this.Controls.Add(this.picboxShowPW);
             this.Controls.Add(this.chckPW);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCodigo);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.SingUp);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.btnSignIn);
-            this.Name = "Form1";
+            this.Name = "Login";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.picboxShowPW)).EndInit();
             this.ResumeLayout(false);
@@ -168,11 +179,12 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label SingUp;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chckPW;
         private System.Windows.Forms.PictureBox picboxShowPW;
+        private System.Windows.Forms.Label testLabel;
     }
 }
 

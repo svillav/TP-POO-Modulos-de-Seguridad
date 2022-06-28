@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controladora;
+using Modelo;
+
 
 namespace Vista
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
             txtPassword.PasswordChar = '•';
@@ -40,6 +43,30 @@ namespace Vista
         private void picboxShowPW_Click(object sender, EventArgs e)
         {
             picboxShowPW.ImageLocation = "Img/ShowPW.png";
+        }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            var ListarUsuarios = ControladoraUsuarios.obtener_instancia().Listar_Usuarios();
+            Usuario usuario = ListarUsuarios.Find(u => (u.Nombre == txtUser.Text || u.Email == txtUser.Text) && u.Contraseña == txtPassword.Text);
+
+            if(usuario != null)
+            {
+                testLabel.Text = usuario.Nombre + " " + usuario.Contraseña + " " + usuario.Email;
+            }
+            else 
+            { 
+                testLabel.Text = "Credenciales invalidas"; 
+            }
+            
+                
+            
+        }
+
+        private void SignUp_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
         }
     }
 }
