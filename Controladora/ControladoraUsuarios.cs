@@ -27,6 +27,12 @@ namespace Controladora
             return Modelo.SingletonContexto.obtener_instancia().Contexto.Usuario.ToList();
         }
 
+        public void Agregar_Usuario(Modelo.Usuario usuario)
+        {
+            Modelo.SingletonContexto.obtener_instancia().Contexto.Usuario.Add(usuario);
+            Modelo.SingletonContexto.obtener_instancia().Contexto.SaveChanges();
+        }
+
         public Modelo.Usuario Obtener_Usuario(int CODIGO)
         {
             return Modelo.SingletonContexto.obtener_instancia().Contexto.Usuario.Find(CODIGO);

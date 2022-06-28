@@ -57,9 +57,7 @@ namespace Vista
             else 
             { 
                 testLabel.Text = "Credenciales invalidas"; 
-            }
-            
-                
+            }          
             
         }
 
