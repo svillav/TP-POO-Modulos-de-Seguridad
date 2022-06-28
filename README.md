@@ -1,13 +1,6 @@
 # TP-POO-Modulos-de-Seguridad
 
-Las dependencias entre Modelo, vista y controlador ya fueron agregadas
-
-hay que terminar con la parte de obtener los campos que el usuario ingresa en el registro, conectarlo a la bd y hacer el insert de los campos 
-* nombre
-* email
-* dni
-* contraseña
-* perfil
+Quede trabajando con la parte del perfil de un nuevo usuario, necesita nombre, mail, dni, pass y un numero (1,2,3) que define el tipo de usuario
 
 
 
