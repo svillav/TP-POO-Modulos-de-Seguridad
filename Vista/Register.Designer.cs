@@ -47,6 +47,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dtpBirth = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
+            this.UserType = new System.Windows.Forms.DomainUpDown();
             this.SuspendLayout();
             // 
             // txtName
@@ -213,11 +214,23 @@
             this.label9.TabIndex = 18;
             this.label9.Text = "Birth";
             // 
+            // UserType
+            // 
+            this.UserType.Items.Add("Admin");
+            this.UserType.Items.Add("SuperAdmin");
+            this.UserType.Items.Add("Cliente");
+            this.UserType.Location = new System.Drawing.Point(181, 267);
+            this.UserType.Name = "UserType";
+            this.UserType.Size = new System.Drawing.Size(206, 20);
+            this.UserType.TabIndex = 22;
+            this.UserType.SelectedItemChanged += new System.EventHandler(this.UserType_SelectedItemChanged);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.UserType);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dtpBirth);
             this.Controls.Add(this.label8);
@@ -266,5 +279,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpBirth;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DomainUpDown UserType;
     }
 }

@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
+using Modelo;
+using Controladora;
 
 namespace Vista
 {
@@ -22,8 +23,6 @@ namespace Vista
         {
 
         }
-
-        //POR ESO ODIO WFORMS 
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -69,44 +68,44 @@ namespace Vista
         private void btnSubmit_Click(object sender, EventArgs e)
         {
 
-            // dentro de una clase en modelo controlada por el Controler
-
-            /*
-
-            bool DNIExists = ReturnToFUSER("DNI", txtDNI.Text);
-            bool EmailExists = ReturnToFUSER("EMAIL",txtEmail.Text);
-            bool UserExists = ReturnToFUSER("USER", txtUser.Text);
-
-
-
-            if (!DNIExists || !EmailExists || !UserExists)
+            if (txtName.Text != string.Empty && txtEmail.Text != string.Empty && txtPassword.Text != string.Empty)
             {
                 try
                 {
-                    using (var ctx = ContextoEntities )
-                    {
-                        Person person = new Person();
-                        person.Name = txtName.Text;
-                        person.LastName = txtLastName.Text;
-                        person.Email = txtEmail.Text;
-                        person.User = txtUser.Text;
-                        person.Password = txtPassword.Text;
-                        person.ProfileID = 99;
-                        person.BirthDate = DateTime.Parse(txtDateOfBirth);
-                        ctx.Person.Add(person);
-                        ctx.SaveChanges();
-                    }
+                    Usuario usuario = new Usuario();
+                    usuario.Nombre = txtName.Text;
+                    //usuario.LastName = txtLastName.Text;
+                    usuario.Email = txtEmail.Text;
+                    //person.User = txtUser.Text;
+                    usuario.Contraseña = txtPassword.Text;
+                    //person.ProfileID = 99;
+                    //person.BirthDate = DateTime.Parse(txtDateOfBirth);
+
+                    MessageBox.Show("Usuario creado");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Cant Sign the user up because:{0}",ex.Message);
                 }
-                
-            }*/
-            
+
+            }
+            else
+            {
+                MessageBox.Show("Complete los campos Nombre \n email \n contraseña \n tipo de usuario");
+            }
+
 
 
         }
-            
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserType_SelectedItemChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
