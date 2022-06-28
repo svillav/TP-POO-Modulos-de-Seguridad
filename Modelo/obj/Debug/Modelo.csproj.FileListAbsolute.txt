@@ -1,0 +1,12 @@
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\Modelo.dll.config
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\Modelo.dll
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\EntityFramework.dll
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\EntityFramework.xml
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.dll
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.pdb
