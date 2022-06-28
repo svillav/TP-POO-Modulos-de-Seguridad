@@ -3,13 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< HEAD
-
-namespace Controladora
-{
-    internal class ControladoraUsuarios
-    {
-=======
 using Modelo;
 
 namespace Controladora
@@ -39,6 +32,5 @@ namespace Controladora
             return Modelo.SingletonContexto.obtener_instancia().Contexto.Usuario.Find(CODIGO);
         }
 
->>>>>>> development
     }
 }

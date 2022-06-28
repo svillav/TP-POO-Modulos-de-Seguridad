@@ -6,23 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-<<<<<<< HEAD
-    public class SingletonContext
-    {
-        private static SingletonContext _instance;
-        private static ContextoContainer _context;
 
-        private SingletonContext() { }
-
-        public static SingletonContext getInstance()
-        {
-            if( _instance == null )
-            {
-                _instance = new SingletonContext();
-                _context = new ContextoContainer();
-            }
-            return _instance;
-=======
     public class SingletonContexto
     {
         private static SingletonContexto _instancia;
@@ -38,16 +22,11 @@ namespace Modelo
                 _contexto = new ContextoContainer();
             }
             return _instancia;
->>>>>>> development
         }
 
         public ContextoContainer Contexto
         {
-<<<<<<< HEAD
-            get { return _context; }
-=======
             get { return _contexto; }
->>>>>>> development
         }
     }
 }
