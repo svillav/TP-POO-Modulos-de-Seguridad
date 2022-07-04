@@ -53,7 +53,7 @@ namespace Vista
 
         private void RefreshList_Click(object sender, EventArgs e)
         {
-
+            dgvUsersList.DataSource = listUsers();
         }
 
         private List<Modelo.Usuario> listUsers()
