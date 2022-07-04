@@ -20,8 +20,8 @@ namespace Vista
 
             try
             {
-                List<Modelo.Usuario> listUsers = Controladora.ControladoraUsuarios.obtener_instancia().Listar_Usuarios();
-                dgvUsersList.DataSource = listUsers;
+                
+                dgvUsersList.DataSource = listUsers();
 
             } catch (Exception e)
             {
@@ -36,6 +36,13 @@ namespace Vista
 
         private void deleteUser_Click(object sender, EventArgs e)
         {
+            //GET SELECTED ROW
+            /*Int32 selectedRowCount = dgvUsersList.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            MessageBox.Show("Selected Rows" + selectedRowCount);*/
+
+            Modelo.Usuario selectedUser = dgvUsersList.SelectedRows[0].DataBoundItem as Modelo.Usuario;
+            Controladora.ControladoraUsuarios.obtener_instancia().Eliminar_Usuario(selectedUser);
+            dgvUsersList.DataSource = listUsers();
 
         }
 
@@ -47,6 +54,11 @@ namespace Vista
         private void RefreshList_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private List<Modelo.Usuario> listUsers()
+        {
+            return Controladora.ControladoraUsuarios.obtener_instancia().Listar_Usuarios();
         }
         
     }
