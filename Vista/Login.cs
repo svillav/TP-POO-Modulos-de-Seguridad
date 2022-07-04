@@ -53,6 +53,8 @@ namespace Vista
             if(usuario != null)
             {
                 testLabel.Text = usuario.Nombre + " " + usuario.Contraseña + " " + usuario.Email;
+                Users users = new Users();
+                users.Show();
             }
             else 
             { 
