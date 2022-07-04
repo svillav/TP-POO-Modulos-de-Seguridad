@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Modelo;
+using Controladora;
 
 namespace Vista
 {
@@ -16,49 +18,36 @@ namespace Vista
         {
             InitializeComponent();
 
-            List<TestGetSet> strings2 = new List<TestGetSet>();
+            try
+            {
+                List<Modelo.Usuario> listUsers = Controladora.ControladoraUsuarios.obtener_instancia().Listar_Usuarios();
+                dgvUsersList.DataSource = listUsers;
 
-            strings2.Add(new TestGetSet("holas", 12));
-            strings2.Add(new TestGetSet("holas", 12));
-            strings2.Add(new TestGetSet("holas", 12));
-            strings2.Add(new TestGetSet("holas", 12));
-            strings2.Add(new TestGetSet("holas", 12));
-            strings2.Add(new TestGetSet("holas", 12));
-            strings2.Add(new TestGetSet("holas", 12));
-
-
-
-
-            dgvUsersList.DataSource = strings2;
+            } catch (Exception e)
+            {
+                MessageBox.Show("Error al listar usuarios: " + e.Message);
+            } 
         }
 
         private void dgvUsersList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-    }
 
-    public class TestGetSet
+        private void deleteUser_Click(object sender, EventArgs e)
         {
-            private string nombre2;
-            private int edad2;
 
-       public TestGetSet(string nombre, int edad)
+        }
+
+        private void ModifyUser_Click(object sender, EventArgs e)
         {
-            this.nombre2 = nombre;
-            this.edad2 = edad;
-        }
-            
-            public string nombre
-            {
-                get { return nombre2; }
-                set { nombre = nombre2; }
-            }
 
-            public int edad
-            {
-                get { return edad2; }
-                set { edad = edad2; }
-            }
         }
+
+        private void RefreshList_Click(object sender, EventArgs e)
+        {
+
+        }
+        
     }
+}

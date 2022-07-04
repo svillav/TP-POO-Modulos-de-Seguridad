@@ -37,7 +37,6 @@
             this.SingUp = new System.Windows.Forms.Label();
             this.chckPW = new System.Windows.Forms.CheckBox();
             this.picboxShowPW = new System.Windows.Forms.PictureBox();
-            this.testLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picboxShowPW)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,21 +118,11 @@
             this.picboxShowPW.TabStop = false;
             this.picboxShowPW.Click += new System.EventHandler(this.picboxShowPW_Click);
             // 
-            // testLabel
-            // 
-            this.testLabel.AutoSize = true;
-            this.testLabel.Location = new System.Drawing.Point(505, 286);
-            this.testLabel.Name = "testLabel";
-            this.testLabel.Size = new System.Drawing.Size(50, 13);
-            this.testLabel.TabIndex = 10;
-            this.testLabel.Text = "testLabel";
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.testLabel);
             this.Controls.Add(this.picboxShowPW);
             this.Controls.Add(this.chckPW);
             this.Controls.Add(this.SingUp);
@@ -160,7 +149,6 @@
         private System.Windows.Forms.Label SingUp;
         private System.Windows.Forms.CheckBox chckPW;
         private System.Windows.Forms.PictureBox picboxShowPW;
-        private System.Windows.Forms.Label testLabel;
     }
 }
 
