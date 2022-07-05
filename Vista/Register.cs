@@ -74,16 +74,14 @@ namespace Vista
                 {
                     Usuario usuario = new Usuario();
                     usuario.Nombre = txtName.Text;
-                    //usuario.LastName = txtLastName.Text;
                     usuario.Email = txtEmail.Text;
-                    //person.User = txtUser.Text;
                     usuario.Contraseña = txtPassword.Text;
-                    //person.ProfileID = 99;
-                    //person.BirthDate = DateTime.Parse(txtDateOfBirth);
+
                     List<Perfil> listaPerfiles = ControladoraPerfiles.obtener_instancia().Listar_Perfiles();
-                    Perfil cliente = listaPerfiles.Find(p => p.Nombre == "Cliente");
+                    Perfil cliente = listaPerfiles.Find(p => p.Nombre == "Admin");
                  
                     usuario.Perfil = cliente;
+
                     MessageBox.Show(usuario.Perfil.Id.ToString());
 
                     ControladoraUsuarios.obtener_instancia().Agregar_Usuario(usuario);
@@ -92,7 +90,7 @@ namespace Vista
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Cant Sign the user up because:{0}",ex.Message);
+                    MessageBox.Show("Cant Sign the user up because: " + ex.Message);
                 }
 
             }

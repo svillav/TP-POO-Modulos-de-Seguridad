@@ -52,11 +52,12 @@ namespace Vista
 
             if(usuario != null)
             {
-                testLabel.Text = usuario.Nombre + " " + usuario.Contraseña + " " + usuario.Email;
+                Users users = new Users();
+                users.Show();
             }
             else 
             { 
-                testLabel.Text = "Credenciales invalidas"; 
+                MessageBox.Show("Credenciales invalidas"); 
             }          
             
         }
