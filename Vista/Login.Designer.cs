@@ -35,8 +35,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SingUp = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.chckPW = new System.Windows.Forms.CheckBox();
             this.picboxShowPW = new System.Windows.Forms.PictureBox();
             this.testLabel = new System.Windows.Forms.Label();
@@ -99,24 +97,6 @@
             this.SingUp.Text = "Sign Up";
             this.SingUp.Click += new System.EventHandler(this.SignUp_Click);
             // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(629, 194);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(78, 20);
-            this.txtCodigo.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Enabled = false;
-            this.label4.Location = new System.Drawing.Point(644, 178);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "CODIGO";
-            // 
             // chckPW
             // 
             this.chckPW.AutoSize = true;
@@ -156,8 +136,6 @@
             this.Controls.Add(this.testLabel);
             this.Controls.Add(this.picboxShowPW);
             this.Controls.Add(this.chckPW);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.SingUp);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -180,8 +158,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label SingUp;
-        private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chckPW;
         private System.Windows.Forms.PictureBox picboxShowPW;
         private System.Windows.Forms.Label testLabel;
