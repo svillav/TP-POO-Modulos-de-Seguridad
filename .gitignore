@@ -1,1 +1,5 @@
 .vs
+Controladora/obj/Debug/Controladora.csproj.AssemblyReference.cache
+Modelo/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Modelo/obj/Debug/Modelo.csproj.AssemblyReference.cache
+Vista/obj/Debug/Vista.csproj.AssemblyReference.cache
