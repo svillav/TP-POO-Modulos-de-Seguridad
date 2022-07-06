@@ -67,5 +67,10 @@ namespace Vista
             Register register = new Register();
             register.Show();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
