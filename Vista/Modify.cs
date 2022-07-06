@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Modelo;
+using Controladora;
 
 namespace Vista
 {
     public partial class Modify : Form
     {
-        public Modify()
+        public Modify(int ID)
         {
             InitializeComponent();
+
+            MessageBox.Show(ID.ToString());
         }
     }
 }

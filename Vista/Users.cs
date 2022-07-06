@@ -48,7 +48,8 @@ namespace Vista
 
         private void ModifyUser_Click(object sender, EventArgs e)
         {
-            Modify modify = new Modify();
+            int selectedUser = dgvUsersList.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            Modify modify = new Modify(selectedUser);
             modify.Show();
         }
 
