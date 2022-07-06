@@ -49,8 +49,16 @@ namespace Vista
         private void ModifyUser_Click(object sender, EventArgs e)
         {
             int selectedUser = dgvUsersList.Rows.GetFirstRow(DataGridViewElementStates.Selected);
-            Modify modify = new Modify(selectedUser);
-            modify.Show();
+            if(selectedUser != 0)
+            {
+                Modify modify = new Modify(selectedUser + 1);
+                modify.Show();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un unico usuario para modificar");
+            }
+            
         }
 
         private void RefreshList_Click(object sender, EventArgs e)

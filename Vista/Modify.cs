@@ -18,7 +18,12 @@ namespace Vista
         {
             InitializeComponent();
 
-            MessageBox.Show(ID.ToString());
+            Modelo.Usuario userToModify = Controladora.ControladoraUsuarios.get_instance().Obtener_Usuario(ID);
+            
+            Name.Text = userToModify.Name;
+            Email.Text = userToModify.Email;
+            DNI.Text = userToModify.Dni;
+            
         }
     }
 }
