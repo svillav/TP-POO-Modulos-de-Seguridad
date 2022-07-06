@@ -21,12 +21,6 @@ namespace Vista
             txtPassword.PasswordChar = '•';
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            Register reg = new Register();
-            reg.Show();
-        }
-
         private void chckPW_CheckedChanged(object sender, EventArgs e)
         {
             if (chckPW.Checked == true)
@@ -47,10 +41,10 @@ namespace Vista
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            var ListarUsuarios = ControladoraUsuarios.obtener_instancia().Listar_Usuarios();
-            Usuario usuario = ListarUsuarios.Find(u => (u.Name == txtUser.Text || u.Email == txtUser.Text) && u.Password == txtPassword.Text);
+            var listUsers = ControladoraUsuarios.get_instance().list_users();
+            Usuario user = listUsers.Find(u => (u.Name == txtUser.Text || u.Email == txtUser.Text) && u.Password == txtPassword.Text);
 
-            if(usuario != null)
+            if(user != null)
             {
                 Users users = new Users();
                 users.Show();

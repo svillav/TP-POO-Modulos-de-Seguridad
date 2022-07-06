@@ -8,28 +8,28 @@ namespace Controladora
 {
     public class ControladoraPerfiles
     {
-        private static ControladoraPerfiles _instancia;
+        private static ControladoraPerfiles _instance;
 
         private ControladoraPerfiles() { }
 
-        public static ControladoraPerfiles obtener_instancia()
+        public static ControladoraPerfiles get_instance()
         {
-            if (_instancia == null)
+            if (_instance == null)
             {
-                _instancia = new ControladoraPerfiles();
+                _instance = new ControladoraPerfiles();
             }
-            return _instancia;
+            return _instance;
         }
 
-        public List<Modelo.Perfil> Listar_Perfiles()
+        public List<Modelo.Perfil> profile_list()
         {
-            return Modelo.SingletonContexto.obtener_instancia().Contexto.Perfil.ToList();
+            return Modelo.SingletonContexto.get_instance().Contexto.Perfil.ToList();
         }
 
-        public void Llenar_Lista_Perfiles(List<Modelo.Perfil> perfiles)
+        public void Llenar_Lista_Perfiles(List<Modelo.Perfil> profiles)
         {
-            Modelo.SingletonContexto.obtener_instancia().Contexto.Perfil.AddRange(perfiles);
-            Modelo.SingletonContexto.obtener_instancia().Contexto.SaveChanges();
+            Modelo.SingletonContexto.get_instance().Contexto.Perfil.AddRange(profiles);
+            Modelo.SingletonContexto.get_instance().Contexto.SaveChanges();
         }
     }
 }

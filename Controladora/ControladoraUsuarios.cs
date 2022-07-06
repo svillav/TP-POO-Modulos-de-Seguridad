@@ -9,39 +9,39 @@ namespace Controladora
 {
     public class ControladoraUsuarios
     {
-        private static ControladoraUsuarios _instancia;
+        private static ControladoraUsuarios _instance;
 
         private ControladoraUsuarios() { }
 
-        public static ControladoraUsuarios obtener_instancia()
+        public static ControladoraUsuarios get_instance()
         {
-            if(_instancia == null)
+            if(_instance == null)
             {
-                _instancia = new ControladoraUsuarios();
+                _instance = new ControladoraUsuarios();
             }
-            return _instancia;
+            return _instance;
         }
 
-        public List<Modelo.Usuario> Listar_Usuarios()
+        public List<Modelo.Usuario> list_users()
         {
-            return Modelo.SingletonContexto.obtener_instancia().Contexto.Usuario.ToList();
+            return Modelo.SingletonContexto.get_instance().Contexto.Usuario.ToList();
         }
 
-        public void Agregar_Usuario(Modelo.Usuario usuario)
+        public void add_user(Modelo.Usuario user)
         {
-            Modelo.SingletonContexto.obtener_instancia().Contexto.Usuario.Add(usuario);
-            Modelo.SingletonContexto.obtener_instancia().Contexto.SaveChanges();
+            Modelo.SingletonContexto.get_instance().Contexto.Usuario.Add(user);
+            Modelo.SingletonContexto.get_instance().Contexto.SaveChanges();
         }
 
-        public Modelo.Usuario Obtener_Usuario(int CODIGO)
+        public Modelo.Usuario Obtener_Usuario(int CODE)
         {
-            return Modelo.SingletonContexto.obtener_instancia().Contexto.Usuario.Find(CODIGO);
+            return Modelo.SingletonContexto.get_instance().Contexto.Usuario.Find(CODE);
         }
 
-        public void Eliminar_Usuario(Modelo.Usuario usuario)
+        public void Eliminar_Usuario(Modelo.Usuario user)
         {
-            Modelo.SingletonContexto.obtener_instancia().Contexto.Usuario.Remove(usuario);
-            Modelo.SingletonContexto.obtener_instancia().Contexto.SaveChanges();
+            Modelo.SingletonContexto.get_instance().Contexto.Usuario.Remove(user);
+            Modelo.SingletonContexto.get_instance().Contexto.SaveChanges();
         }
 
     }
