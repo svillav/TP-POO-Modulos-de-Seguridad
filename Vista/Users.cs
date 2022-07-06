@@ -48,7 +48,8 @@ namespace Vista
 
         private void ModifyUser_Click(object sender, EventArgs e)
         {
-
+            Modify modify = new Modify();
+            modify.Show();
         }
 
         private void RefreshList_Click(object sender, EventArgs e)
