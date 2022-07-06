@@ -14,7 +14,7 @@ namespace Modelo
 
         private SingletonContexto() { }
 
-        public static SingletonContexto obtener_instancia()
+        public static SingletonContexto get_instance()
         {
             if(_instancia == null)
             {

@@ -72,19 +72,19 @@ namespace Vista
             {
                 try
                 {
-                    Usuario usuario = new Usuario();
-                    usuario.Nombre = txtName.Text;
-                    usuario.Email = txtEmail.Text;
-                    usuario.Contraseña = txtPassword.Text;
+                    Usuario user = new Usuario();
+                    user.Name = txtName.Text;
+                    user.Email = txtEmail.Text;
+                    user.Password = txtPassword.Text;
 
-                    List<Perfil> listaPerfiles = ControladoraPerfiles.obtener_instancia().Listar_Perfiles();
-                    Perfil cliente = listaPerfiles.Find(p => p.Nombre == "Admin");
+                    List<Perfil> profileList = ControladoraPerfiles.get_instance().profile_list();
+                    Perfil client = profileList.Find(p => p.Name == "Admin");
                  
-                    usuario.Perfil = cliente;
+                    user.Perfil = client;
 
-                    MessageBox.Show(usuario.Perfil.Id.ToString());
+                    MessageBox.Show(user.Perfil.Id.ToString());
 
-                    ControladoraUsuarios.obtener_instancia().Agregar_Usuario(usuario);
+                    ControladoraUsuarios.get_instance().add_user(user);
 
                     MessageBox.Show("Usuario creado");
                 }

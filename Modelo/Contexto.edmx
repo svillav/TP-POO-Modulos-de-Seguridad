@@ -38,10 +38,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Dni" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Contraseña" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Perfil_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Perfil">
@@ -49,23 +49,23 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Formulario">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="NombreSistema" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SystemName" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Permiso">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="NombreSistema" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SystemName" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="PerfilFormulario">
     <Key>
@@ -171,10 +171,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Perfil" Relationship="Contexto.UsuarioPerfil" FromRole="Usuario" ToRole="Perfil" />
-          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" />
           <Property Name="Dni" Type="String" Nullable="false" />
-          <Property Name="Contraseña" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Perfil">
           <Key>
@@ -183,7 +183,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Usuario" Relationship="Contexto.UsuarioPerfil" FromRole="Perfil" ToRole="Usuario" />
           <NavigationProperty Name="Formulario" Relationship="Contexto.PerfilFormulario" FromRole="Perfil" ToRole="Formulario" />
-          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Formulario">
           <Key>
@@ -192,8 +192,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Perfil" Relationship="Contexto.PerfilFormulario" FromRole="Formulario" ToRole="Perfil" />
           <NavigationProperty Name="Permiso" Relationship="Contexto.FormularioPermiso" FromRole="Formulario" ToRole="Permiso" />
-          <Property Name="Nombre" Type="String" Nullable="false" />
-          <Property Name="NombreSistema" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="SystemName" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Permiso">
           <Key>
@@ -201,8 +201,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Formulario" Relationship="Contexto.FormularioPermiso" FromRole="Permiso" ToRole="Formulario" />
-          <Property Name="Nombre" Type="String" Nullable="false" />
-          <Property Name="NombreSistema" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="SystemName" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="UsuarioPerfil">
           <End Type="Contexto.Usuario" Role="Usuario" Multiplicity="*" />
@@ -226,10 +226,10 @@
       <EntityTypeMapping TypeName="IsTypeOf(Contexto.Usuario)">
         <MappingFragment StoreEntitySet="Usuario">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Dni" ColumnName="Dni" />
-          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -237,7 +237,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(Contexto.Perfil)">
         <MappingFragment StoreEntitySet="Perfil">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -245,8 +245,8 @@
       <EntityTypeMapping TypeName="IsTypeOf(Contexto.Formulario)">
         <MappingFragment StoreEntitySet="Formulario">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="NombreSistema" ColumnName="NombreSistema" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -254,8 +254,8 @@
       <EntityTypeMapping TypeName="IsTypeOf(Contexto.Permiso)">
         <MappingFragment StoreEntitySet="Permiso">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="NombreSistema" ColumnName="NombreSistema" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

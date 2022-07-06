@@ -22,7 +22,7 @@ namespace Modelo
         }
     
         public int Id { get; set; }
-        public string Nombre { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario> Usuario { get; set; }
