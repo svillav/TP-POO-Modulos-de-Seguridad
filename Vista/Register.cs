@@ -73,9 +73,9 @@ namespace Vista
                 try
                 {
                     Usuario usuario = new Usuario();
-                    usuario.Nombre = txtName.Text;
+                    usuario.Name = txtName.Text;
                     usuario.Email = txtEmail.Text;
-                    usuario.Contraseña = txtPassword.Text;
+                    usuario.Password = txtPassword.Text;
 
                     List<Perfil> listaPerfiles = ControladoraPerfiles.obtener_instancia().Listar_Perfiles();
                     Perfil cliente = listaPerfiles.Find(p => p.Nombre == "Admin");

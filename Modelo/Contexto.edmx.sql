@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/03/2022 16:34:07
--- Generated from EDMX file: C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\Contexto.edmx
+-- Date Created: 07/06/2022 14:39:50
+-- Generated from EDMX file: C:\Users\MartinVM\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\Contexto.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -63,10 +63,10 @@ GO
 -- Creating table 'Usuario'
 CREATE TABLE [dbo].[Usuario] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Nombre] nvarchar(max)  NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
     [Email] nvarchar(max)  NOT NULL,
     [Dni] nvarchar(max)  NOT NULL,
-    [Contraseña] nvarchar(max)  NOT NULL,
+    [Password] nvarchar(max)  NOT NULL,
     [Perfil_Id] int  NOT NULL
 );
 GO
@@ -74,23 +74,23 @@ GO
 -- Creating table 'Perfil'
 CREATE TABLE [dbo].[Perfil] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Nombre] nvarchar(max)  NOT NULL
+    [Name] nvarchar(max)  NOT NULL
 );
 GO
 
 -- Creating table 'Formulario'
 CREATE TABLE [dbo].[Formulario] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Nombre] nvarchar(max)  NOT NULL,
-    [NombreSistema] nvarchar(max)  NOT NULL
+    [Name] nvarchar(max)  NOT NULL,
+    [SystemName] nvarchar(max)  NOT NULL
 );
 GO
 
 -- Creating table 'Permiso'
 CREATE TABLE [dbo].[Permiso] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Nombre] nvarchar(max)  NOT NULL,
-    [NombreSistema] nvarchar(max)  NOT NULL
+    [Name] nvarchar(max)  NOT NULL,
+    [SystemName] nvarchar(max)  NOT NULL
 );
 GO
 

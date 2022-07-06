@@ -48,7 +48,7 @@ namespace Vista
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             var ListarUsuarios = ControladoraUsuarios.obtener_instancia().Listar_Usuarios();
-            Usuario usuario = ListarUsuarios.Find(u => (u.Nombre == txtUser.Text || u.Email == txtUser.Text) && u.Contraseña == txtPassword.Text);
+            Usuario usuario = ListarUsuarios.Find(u => (u.Name == txtUser.Text || u.Email == txtUser.Text) && u.Password == txtPassword.Text);
 
             if(usuario != null)
             {
