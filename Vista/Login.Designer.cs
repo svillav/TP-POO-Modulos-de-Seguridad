@@ -46,7 +46,7 @@
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(113, 23);
             this.btnSignIn.TabIndex = 0;
-            this.btnSignIn.Text = "Sign In";
+            this.btnSignIn.Text = "Ingresar";
             this.btnSignIn.UseVisualStyleBackColor = true;
             this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
@@ -69,31 +69,32 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(372, 100);
+            this.label1.Location = new System.Drawing.Point(347, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "User";
+            this.label1.Text = "Nombre de Usuario";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(361, 178);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Password";
+            this.label2.Text = "Contraseña";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // SingUp
             // 
             this.SingUp.AutoSize = true;
             this.SingUp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SingUp.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.SingUp.Location = new System.Drawing.Point(369, 286);
+            this.SingUp.Location = new System.Drawing.Point(361, 282);
             this.SingUp.Name = "SingUp";
-            this.SingUp.Size = new System.Drawing.Size(45, 13);
+            this.SingUp.Size = new System.Drawing.Size(60, 13);
             this.SingUp.TabIndex = 5;
-            this.SingUp.Text = "Sign Up";
+            this.SingUp.Text = "Registrarse";
             this.SingUp.Click += new System.EventHandler(this.SignUp_Click);
             // 
             // chckPW

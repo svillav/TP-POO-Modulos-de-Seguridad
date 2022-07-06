@@ -90,9 +90,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(63, 116);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Name";
+            this.label1.Text = "Nombre";
             // 
             // label3
             // 
@@ -108,9 +108,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(63, 228);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Password";
+            this.label4.Text = "Contraseña";
             // 
             // label6
             // 
@@ -126,17 +126,17 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(63, 266);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 13);
+            this.label7.Size = new System.Drawing.Size(108, 13);
             this.label7.TabIndex = 13;
-            this.label7.Text = "Repeat Password";
+            this.label7.Text = "Repetir la contraseña";
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(229, 356);
+            this.btnSubmit.Location = new System.Drawing.Point(166, 358);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(106, 23);
             this.btnSubmit.TabIndex = 14;
-            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.Text = "Registrarse";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
@@ -156,9 +156,9 @@
             this.UserTypeLabel.AutoSize = true;
             this.UserTypeLabel.Location = new System.Drawing.Point(63, 307);
             this.UserTypeLabel.Name = "UserTypeLabel";
-            this.UserTypeLabel.Size = new System.Drawing.Size(56, 13);
+            this.UserTypeLabel.Size = new System.Drawing.Size(80, 13);
             this.UserTypeLabel.TabIndex = 23;
-            this.UserTypeLabel.Text = "User Type";
+            this.UserTypeLabel.Text = "Tipo de usuario";
             this.UserTypeLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // Register
