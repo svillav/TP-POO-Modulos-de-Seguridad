@@ -9,24 +9,24 @@ namespace Modelo
 
     public class SingletonContexto
     {
-        private static SingletonContexto _instancia;
-        private static ContextoContainer _contexto;
+        private static SingletonContexto _instance;
+        private static ContextoContainer _context;
 
         private SingletonContexto() { }
 
         public static SingletonContexto get_instance()
         {
-            if(_instancia == null)
+            if(_instance == null)
             {
-                _instancia = new SingletonContexto();
-                _contexto = new ContextoContainer();
+                _instance = new SingletonContexto();
+                _context = new ContextoContainer();
             }
-            return _instancia;
+            return _instance;
         }
 
         public ContextoContainer Contexto
         {
-            get { return _contexto; }
+            get { return _context; }
         }
     }
 }

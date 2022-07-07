@@ -5,10 +5,10 @@
       <EntityTypeMapping TypeName="IsTypeOf(Contexto.Usuario)">
         <MappingFragment StoreEntitySet="Usuario">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Dni" ColumnName="Dni" />
-          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -16,7 +16,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(Contexto.Perfil)">
         <MappingFragment StoreEntitySet="Perfil">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -24,8 +24,8 @@
       <EntityTypeMapping TypeName="IsTypeOf(Contexto.Formulario)">
         <MappingFragment StoreEntitySet="Formulario">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="NombreSistema" ColumnName="NombreSistema" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -33,8 +33,8 @@
       <EntityTypeMapping TypeName="IsTypeOf(Contexto.Permiso)">
         <MappingFragment StoreEntitySet="Permiso">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="NombreSistema" ColumnName="NombreSistema" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

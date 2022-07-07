@@ -43,3 +43,4 @@ C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Vista\bin\Debug\Con
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Vista\bin\Debug\Modelo.pdb
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Vista\bin\Debug\Modelo.dll.config
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Vista\obj\Debug\Vista.Users.resources
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Vista\obj\Debug\Vista.Modify.resources

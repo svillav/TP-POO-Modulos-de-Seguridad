@@ -33,15 +33,45 @@ namespace Controladora
             Modelo.SingletonContexto.get_instance().Contexto.SaveChanges();
         }
 
-        public Modelo.Usuario Obtener_Usuario(int CODE)
+        public Modelo.Usuario Get_User(int CODE)
         {
             return Modelo.SingletonContexto.get_instance().Contexto.Usuario.Find(CODE);
         }
 
-        public void Eliminar_Usuario(Modelo.Usuario user)
+        public void Delete_User(Modelo.Usuario user)
         {
             Modelo.SingletonContexto.get_instance().Contexto.Usuario.Remove(user);
             Modelo.SingletonContexto.get_instance().Contexto.SaveChanges();
+        }
+
+        public void Modify_User(Modelo.Usuario user, Modelo.Usuario userModify)
+        {
+            Modelo.Usuario updateUser = Modelo.SingletonContexto.get_instance().Contexto.Usuario.Where(a => a.Name == user.Name).First();
+
+            if (updateUser != null)
+            {
+                updateUser.Name = userModify.Name;
+                updateUser.Email = userModify.Email;
+                updateUser.Dni = userModify.Dni;
+
+                if (userModify.Password != null)
+                {
+                    updateUser.Password = userModify.Password;
+                }
+                else
+                {
+                    updateUser.Password = user.Password;
+                }
+
+                try
+                {
+                    Modelo.SingletonContexto.get_instance().Contexto.SaveChanges();
+                }catch(Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+            
         }
 
     }

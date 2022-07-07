@@ -24,10 +24,10 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="Perfil" Relationship="Contexto.UsuarioPerfil" FromRole="Usuario" ToRole="Perfil" />
-    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
     <Property Name="Email" Type="String" Nullable="false" />
     <Property Name="Dni" Type="String" Nullable="false" />
-    <Property Name="Contraseña" Type="String" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" />
   </EntityType>
   <EntityType Name="Perfil">
     <Key>
@@ -36,7 +36,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="Usuario" Relationship="Contexto.UsuarioPerfil" FromRole="Perfil" ToRole="Usuario" />
     <NavigationProperty Name="Formulario" Relationship="Contexto.PerfilFormulario" FromRole="Perfil" ToRole="Formulario" />
-    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
   </EntityType>
   <EntityType Name="Formulario">
     <Key>
@@ -45,8 +45,8 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="Perfil" Relationship="Contexto.PerfilFormulario" FromRole="Formulario" ToRole="Perfil" />
     <NavigationProperty Name="Permiso" Relationship="Contexto.FormularioPermiso" FromRole="Formulario" ToRole="Permiso" />
-    <Property Name="Nombre" Type="String" Nullable="false" />
-    <Property Name="NombreSistema" Type="String" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="SystemName" Type="String" Nullable="false" />
   </EntityType>
   <EntityType Name="Permiso">
     <Key>
@@ -54,8 +54,8 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="Formulario" Relationship="Contexto.FormularioPermiso" FromRole="Permiso" ToRole="Formulario" />
-    <Property Name="Nombre" Type="String" Nullable="false" />
-    <Property Name="NombreSistema" Type="String" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="SystemName" Type="String" Nullable="false" />
   </EntityType>
   <Association Name="UsuarioPerfil">
     <End Type="Contexto.Usuario" Role="Usuario" Multiplicity="*" />
