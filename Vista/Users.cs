@@ -41,7 +41,7 @@ namespace Vista
             MessageBox.Show("Selected Rows" + selectedRowCount);*/
 
             Modelo.Usuario selectedUser = dgvUsersList.SelectedRows[0].DataBoundItem as Modelo.Usuario;
-            Controladora.ControladoraUsuarios.get_instance().Eliminar_Usuario(selectedUser);
+            Controladora.ControladoraUsuarios.get_instance().Delete_User(selectedUser);
             dgvUsersList.DataSource = listUsers();
 
         }

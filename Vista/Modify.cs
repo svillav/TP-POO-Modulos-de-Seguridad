@@ -14,16 +14,49 @@ namespace Vista
 {
     public partial class Modify : Form
     {
+
+        Modelo.Usuario currentUser = new Usuario();
+
         public Modify(int ID)
         {
             InitializeComponent();
 
-            Modelo.Usuario userToModify = Controladora.ControladoraUsuarios.get_instance().Obtener_Usuario(ID);
-            
-            Name.Text = userToModify.Name;
-            Email.Text = userToModify.Email;
-            DNI.Text = userToModify.Dni;
-            
+            currentUser = Controladora.ControladoraUsuarios.get_instance().Get_User(ID);
+            if (currentUser != null)
+            {
+                MessageBox.Show(currentUser.Name.ToString());
+                NameTB.Text = currentUser.Name;
+                EmailTB.Text = currentUser.Email;
+                DNITB.Text = currentUser.Dni;
+            }
+            else { MessageBox.Show("No existe el usuario"); }
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            Modelo.Usuario userModify = new Usuario();
+            try
+            {
+                if (currentUser != null)
+                {
+                    userModify.Id = currentUser.Id;
+                    userModify.Name = NameTB.Text;
+                    userModify.Email = EmailTB.Text;
+                    userModify.Dni = DNITB.Text;
+                    userModify.Perfil = currentUser.Perfil;
+                }
+
+                if (PasswordTB.Text == RepeatPassTB.Text)
+                {
+                    userModify.Password = PasswordTB.Text;
+                }
+
+                Controladora.ControladoraUsuarios.get_instance().Modify_User(currentUser, userModify);
+                Close();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.Name = new System.Windows.Forms.TextBox();
-            this.Email = new System.Windows.Forms.TextBox();
+            this.NameTB = new System.Windows.Forms.TextBox();
+            this.EmailTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.DNI = new System.Windows.Forms.TextBox();
+            this.DNITB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Password = new System.Windows.Forms.TextBox();
+            this.PasswordTB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.RepeatPass = new System.Windows.Forms.TextBox();
+            this.RepeatPassTB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Save = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -50,19 +50,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // Name
+            // NameTB
             // 
-            this.Name.Location = new System.Drawing.Point(143, 24);
-            this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(159, 20);
-            this.Name.TabIndex = 1;
+            this.NameTB.Location = new System.Drawing.Point(143, 24);
+            this.NameTB.Name = "NameTB";
+            this.NameTB.Size = new System.Drawing.Size(159, 20);
+            this.NameTB.TabIndex = 1;
             // 
-            // Email
+            // EmailTB
             // 
-            this.Email.Location = new System.Drawing.Point(143, 66);
-            this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(159, 20);
-            this.Email.TabIndex = 3;
+            this.EmailTB.Location = new System.Drawing.Point(143, 66);
+            this.EmailTB.Name = "EmailTB";
+            this.EmailTB.Size = new System.Drawing.Size(159, 20);
+            this.EmailTB.TabIndex = 3;
             // 
             // label2
             // 
@@ -73,12 +73,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Email";
             // 
-            // DNI
+            // DNITB
             // 
-            this.DNI.Location = new System.Drawing.Point(143, 109);
-            this.DNI.Name = "DNI";
-            this.DNI.Size = new System.Drawing.Size(159, 20);
-            this.DNI.TabIndex = 5;
+            this.DNITB.Location = new System.Drawing.Point(143, 109);
+            this.DNITB.Name = "DNITB";
+            this.DNITB.Size = new System.Drawing.Size(159, 20);
+            this.DNITB.TabIndex = 5;
             // 
             // label3
             // 
@@ -89,12 +89,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "DNI";
             // 
-            // Password
+            // PasswordTB
             // 
-            this.Password.Location = new System.Drawing.Point(143, 153);
-            this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(159, 20);
-            this.Password.TabIndex = 7;
+            this.PasswordTB.Location = new System.Drawing.Point(143, 153);
+            this.PasswordTB.Name = "PasswordTB";
+            this.PasswordTB.Size = new System.Drawing.Size(159, 20);
+            this.PasswordTB.TabIndex = 7;
             // 
             // label4
             // 
@@ -105,12 +105,12 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Contraseña";
             // 
-            // RepeatPass
+            // RepeatPassTB
             // 
-            this.RepeatPass.Location = new System.Drawing.Point(143, 194);
-            this.RepeatPass.Name = "RepeatPass";
-            this.RepeatPass.Size = new System.Drawing.Size(159, 20);
-            this.RepeatPass.TabIndex = 9;
+            this.RepeatPassTB.Location = new System.Drawing.Point(143, 194);
+            this.RepeatPassTB.Name = "RepeatPassTB";
+            this.RepeatPassTB.Size = new System.Drawing.Size(159, 20);
+            this.RepeatPassTB.TabIndex = 9;
             // 
             // label5
             // 
@@ -129,6 +129,7 @@
             this.Save.TabIndex = 10;
             this.Save.Text = "Guardar";
             this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // Modify
             // 
@@ -136,16 +137,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 304);
             this.Controls.Add(this.Save);
-            this.Controls.Add(this.RepeatPass);
+            this.Controls.Add(this.RepeatPassTB);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.Password);
+            this.Controls.Add(this.PasswordTB);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.DNI);
+            this.Controls.Add(this.DNITB);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.Email);
+            this.Controls.Add(this.EmailTB);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.Name);
+            this.Controls.Add(this.NameTB);
             this.Controls.Add(this.label1);
+            this.Name = "Modify";
             this.Text = "Modify";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -155,14 +157,14 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Name;
-        private System.Windows.Forms.TextBox Email;
+        private System.Windows.Forms.TextBox NameTB;
+        private System.Windows.Forms.TextBox EmailTB;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox DNI;
+        private System.Windows.Forms.TextBox DNITB;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Password;
+        private System.Windows.Forms.TextBox PasswordTB;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox RepeatPass;
+        private System.Windows.Forms.TextBox RepeatPassTB;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Save;
     }
