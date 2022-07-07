@@ -53,7 +53,15 @@ namespace Controladora
                 updateUser.Name = userModify.Name;
                 updateUser.Email = userModify.Email;
                 updateUser.Dni = userModify.Dni;
-                updateUser.Password = userModify.Password;
+
+                if (userModify.Password != null)
+                {
+                    updateUser.Password = userModify.Password;
+                }
+                else
+                {
+                    updateUser.Password = user.Password;
+                }
 
                 try
                 {

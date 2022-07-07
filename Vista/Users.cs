@@ -20,7 +20,6 @@ namespace Vista
 
             try
             {
-                
                 dgvUsersList.DataSource = listUsers();
 
             } catch (Exception e)
@@ -36,20 +35,16 @@ namespace Vista
 
         private void deleteUser_Click(object sender, EventArgs e)
         {
-            //GET SELECTED ROW
-            /*Int32 selectedRowCount = dgvUsersList.Rows.GetFirstRow(DataGridViewElementStates.Selected);
-            MessageBox.Show("Selected Rows" + selectedRowCount);*/
-
             Modelo.Usuario selectedUser = dgvUsersList.SelectedRows[0].DataBoundItem as Modelo.Usuario;
             Controladora.ControladoraUsuarios.get_instance().Delete_User(selectedUser);
             dgvUsersList.DataSource = listUsers();
-
         }
 
         private void ModifyUser_Click(object sender, EventArgs e)
         {
             int selectedUser = dgvUsersList.Rows.GetFirstRow(DataGridViewElementStates.Selected);
-            if(selectedUser != 0)
+
+            if (dgvUsersList.SelectedRows.Count == 1)
             {
                 Modify modify = new Modify(selectedUser + 1);
                 modify.Show();
@@ -58,7 +53,6 @@ namespace Vista
             {
                 MessageBox.Show("Seleccione un unico usuario para modificar");
             }
-            
         }
 
         private void RefreshList_Click(object sender, EventArgs e)

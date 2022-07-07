@@ -46,14 +46,19 @@ namespace Vista
                     userModify.Perfil = currentUser.Perfil;
                 }
 
-                if (PasswordTB.Text == RepeatPassTB.Text)
+                if (!string.IsNullOrEmpty(PasswordTB.Text) && PasswordTB.Text == RepeatPassTB.Text)
                 {
                     userModify.Password = PasswordTB.Text;
+                }
+                else
+                {
+                    userModify.Password = null;
                 }
 
                 Controladora.ControladoraUsuarios.get_instance().Modify_User(currentUser, userModify);
                 Close();
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
