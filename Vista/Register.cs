@@ -72,19 +72,23 @@ namespace Vista
             {
                 try
                 {
-                    Usuario usuario = new Usuario();
-                    usuario.Nombre = txtName.Text;
+                    Modelo.DTO.UsuariosDto usuario = new Modelo.DTO.UsuariosDto();
+                    usuario.Name = txtName.Text;
+                    usuario.Dni = int.Parse(txtDNI.Text);
                     usuario.Email = txtEmail.Text;
                     usuario.Contraseña = txtPassword.Text;
+                    usuario.Perfil = 1;
 
-                    List<Perfil> listaPerfiles = ControladoraPerfiles.obtener_instancia().Listar_Perfiles();
-                    Perfil cliente = listaPerfiles.Find(p => p.Nombre == "Admin");
-                 
-                    usuario.Perfil = cliente;
+                    //var listaPerfiles = Controladora.ControladoraPerfiles.GetPerfiles();
+                   // Modelo.DTO.PerfilesDto cliente = listaPerfiles.Find(p => p.Id == 0);// cambiar a cliente
+                    //Modelo.Perfiles perf = new Modelo.Perfiles();
+                   // perf.Id = cliente.Id;
+                   // perf.Nombre = cliente.Nombre;
+                    //usuario.Perfil = new Modelo.Perfiles() { Id = 1, Nombre = "SuperAdmin", Usuario = null };//perf; //Convert.ToInt32(cliente.Id);
 
-                    MessageBox.Show(usuario.Perfil.Id.ToString());
+                    // MessageBox.Show(usuario.Perfil.Id.ToString()); //cartel que dice exactamente "3"
 
-                    ControladoraUsuarios.obtener_instancia().Agregar_Usuario(usuario);
+                    ControladoraUsuarios.AgregarUsuario(usuario);
 
                     MessageBox.Show("Usuario creado");
                 }

@@ -47,8 +47,12 @@ namespace Vista
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            var ListarUsuarios = ControladoraUsuarios.obtener_instancia().Listar_Usuarios();
-            Usuario usuario = ListarUsuarios.Find(u => (u.Nombre == txtUser.Text || u.Email == txtUser.Text) && u.Contraseña == txtPassword.Text);
+            Users users = new Users();
+            users.Show();
+            /*
+            //var ListarUsuarios = ControladoraUsuarios.obtener_instancia().Listar_Usuarios();
+            var listausuarios = Controladora.ControladoraUsuarios.GetUsuarios();
+            Modelo.DTO.UsuariosDto usuario = listausuarios.Find(u => (u.Name == txtUser.Text || u.Email == txtUser.Text) && u.Contraseña == txtPassword.Text);
 
             if(usuario != null)
             {
@@ -58,7 +62,7 @@ namespace Vista
             else 
             { 
                 MessageBox.Show("Credenciales invalidas"); 
-            }          
+            }   */       
             
         }
 

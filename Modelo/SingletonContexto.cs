@@ -9,7 +9,7 @@ namespace Modelo
 
     public class SingletonContexto
     {
-        private static SingletonContexto _instancia;
+        /*private static SingletonContexto _instancia;
         private static ContextoContainer _contexto;
 
         private SingletonContexto() { }
@@ -27,6 +27,6 @@ namespace Modelo
         public ContextoContainer Contexto
         {
             get { return _contexto; }
-        }
+        }*/
     }
 }

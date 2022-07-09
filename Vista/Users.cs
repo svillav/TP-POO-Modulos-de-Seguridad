@@ -14,14 +14,16 @@ namespace Vista
 {
     public partial class Users : Form
     {
+        List<Modelo.DTO.UsuariosDto> listUsers;
         public Users()
         {
             InitializeComponent();
 
             try
             {
-                
-                dgvUsersList.DataSource = listUsers();
+                listUsers = Controladora.ControladoraUsuarios.GetUsuarios();
+                dgvUsersList.DataSource = null;
+                dgvUsersList.DataSource = listUsers;
 
             } catch (Exception e)
             {
@@ -40,9 +42,10 @@ namespace Vista
             /*Int32 selectedRowCount = dgvUsersList.Rows.GetFirstRow(DataGridViewElementStates.Selected);
             MessageBox.Show("Selected Rows" + selectedRowCount);*/
 
-            Modelo.Usuario selectedUser = dgvUsersList.SelectedRows[0].DataBoundItem as Modelo.Usuario;
-            Controladora.ControladoraUsuarios.obtener_instancia().Eliminar_Usuario(selectedUser);
-            dgvUsersList.DataSource = listUsers();
+            //Modelo.Usuario selectedUser = dgvUsersList.SelectedRows[0].DataBoundItem as Modelo.Usuario;
+            //Controladora.ControladoraUsuarios.obtener_instancia().Eliminar_Usuario(selectedUser);
+            //dgvUserList.DataSource = null;
+            dgvUsersList.DataSource = listUsers;
 
         }
 
@@ -53,13 +56,11 @@ namespace Vista
 
         private void RefreshList_Click(object sender, EventArgs e)
         {
-            dgvUsersList.DataSource = listUsers();
+            dgvUsersList.DataSource = null;
+            dgvUsersList.DataSource = listUsers;
         }
 
-        private List<Modelo.Usuario> listUsers()
-        {
-            return Controladora.ControladoraUsuarios.obtener_instancia().Listar_Usuarios();
-        }
+        
         
     }
 }

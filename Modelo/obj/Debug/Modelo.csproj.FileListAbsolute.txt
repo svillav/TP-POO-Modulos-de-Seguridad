@@ -10,3 +10,15 @@ C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Mo
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.csproj.CopyComplete
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.dll
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Modelo\obj\Debug\Modelo.pdb
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Modelo\bin\Debug\Modelo.dll.config
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Modelo\bin\Debug\Modelo.dll
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Modelo\bin\Debug\Modelo.pdb
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Modelo\bin\Debug\EntityFramework.dll
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Modelo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Modelo\bin\Debug\EntityFramework.xml
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Modelo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Modelo\obj\Debug\Modelo.dll
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Modelo\obj\Debug\Modelo.pdb
