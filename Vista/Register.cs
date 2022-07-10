@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Modelo;
 using Controladora;
+using Modelo.Enum;
 
 namespace Vista
 {
     public partial class Register : Form
     {
+        
         public Register()
         {
             InitializeComponent();
@@ -67,36 +69,106 @@ namespace Vista
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            
+
+
+
+
 
             if (txtName.Text != string.Empty && txtEmail.Text != string.Empty && txtPassword.Text != string.Empty)
             {
-                try
+                bool namevalid = false; bool emailvalid = false; bool dnivalid = false;bool pwvalid = false; //validadores de string
+                bool emaildb = false, dnidb = false; //validadores de ddbb
+
+                try//valido los strings 
                 {
-                    Modelo.DTO.UsuariosDto usuario = new Modelo.DTO.UsuariosDto();
-                    usuario.Name = txtName.Text;
-                    usuario.Dni = int.Parse(txtDNI.Text);
-                    usuario.Email = txtEmail.Text;
-                    usuario.Contraseña = txtPassword.Text;
-                    usuario.Perfil = 1;
 
-                    //var listaPerfiles = Controladora.ControladoraPerfiles.GetPerfiles();
-                   // Modelo.DTO.PerfilesDto cliente = listaPerfiles.Find(p => p.Id == 0);// cambiar a cliente
-                    //Modelo.Perfiles perf = new Modelo.Perfiles();
-                   // perf.Id = cliente.Id;
-                   // perf.Nombre = cliente.Nombre;
-                    //usuario.Perfil = new Modelo.Perfiles() { Id = 1, Nombre = "SuperAdmin", Usuario = null };//perf; //Convert.ToInt32(cliente.Id);
+                    //namevalid = Controladora.ValidInfoUserCtrl.Validate(Enums.ValidType.CheckValid, Enums.PropertieType.Name, txtName.Text);
+                    //emailvalid = Controladora.ValidInfoUserCtrl.Validate(Enums.ValidType.CheckValid, Enums.PropertieType.Email, txtEmail.Text);
+                    //dnivalid = Controladora.ValidInfoUserCtrl.Validate(Enums.ValidType.CheckValid, Enums.PropertieType.DNI, txtDNI.Text);
+                    //pwvalid = Controladora.ValidInfoUserCtrl.Validate(Enums.ValidType.CheckValid, Enums.PropertieType.Password, txtPassword.Text);
+                    ////los verificadores de base de datos van en el mismo try porque antes con menos seguridad se creaban cuentas y puede
+                    ////que haya cuentas que tengan menos seguridad pero no hayan cambiado
+                    //emaildb = Controladora.ValidInfoUserCtrl.Validate(Enums.ValidType.CheckDDBB, Enums.PropertieType.Email, txtEmail.Text);
+                    //dnidb = Controladora.ValidInfoUserCtrl.Validate(Enums.ValidType.CheckDDBB, Enums.PropertieType.DNI, txtDNI.Text);
 
-                    // MessageBox.Show(usuario.Perfil.Id.ToString()); //cartel que dice exactamente "3"
 
-                    ControladoraUsuarios.AgregarUsuario(usuario);
+                    namevalid = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckValid), Convert.ToInt32(Enums.PropertieType.Name), txtName.Text);
+                    emailvalid = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckValid), Convert.ToInt32(Enums.PropertieType.Email), txtEmail.Text);
+                    dnivalid = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckValid), Convert.ToInt32(Enums.PropertieType.DNI), txtDNI.Text);
+                    pwvalid = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckValid), Convert.ToInt32(Enums.PropertieType.Password), txtPassword.Text);
+                    //los verificadores de base de datos van en el mismo try porque antes con menos seguridad se creaban cuentas y puede
+                    //que haya cuentas que tengan menos seguridad pero no hayan cambiado
+                    emaildb = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckDDBB), Convert.ToInt32(Enums.PropertieType.Email), txtEmail.Text);
+                    dnidb = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckDDBB), Convert.ToInt32(Enums.PropertieType.DNI), txtDNI.Text);
+                    //
+                    ///
+                    ///codigo feo
+                    ///
+                    //
+                    string cartel ="";
+                    if (!namevalid) { cartel += "Nombre Invalido"; }
+                    if (!emailvalid) { cartel += "\nEmail Invalido"; }
+                    if (!dnivalid) { cartel += "\nDNI Invalido"; }
+                    if (!pwvalid) { cartel += "\nContraseña Invalida"; }
+                    if (emaildb== true) { cartel += "\nEl usuario ya existe en la base de datos"; }
+                    if (dnidb== true) { cartel += "\nEl DNI ya existe en la base de datos"; }
 
-                    MessageBox.Show("Usuario creado");
+                    //
+                    ///
+                    ///codigo feo
+                    ///
+                    //
+                    if (cartel.Length > 1) { MessageBox.Show(cartel); }
                 }
                 catch (Exception ex)
-                {
-                    MessageBox.Show("Cant Sign the user up because: " + ex.Message);
-                }
+                { MessageBox.Show(ex.Message); }
 
+
+
+                if (namevalid == true &&
+                    emailvalid == true && 
+                    dnivalid == true && 
+                    pwvalid == true && 
+                    emaildb == false && 
+                    dnidb ==false)
+                {
+
+                
+                    try
+                    {
+                        Modelo.DTO.UsuariosDto usuario = new Modelo.DTO.UsuariosDto();
+                        usuario.Name = txtName.Text;
+                        usuario.Dni = int.Parse(txtDNI.Text);
+                        usuario.Email = txtEmail.Text;
+                        usuario.Contraseña = txtPassword.Text;
+                        usuario.Perfil = 1;
+
+                        //var listaPerfiles = Controladora.ControladoraPerfiles.GetPerfiles();
+                       // Modelo.DTO.PerfilesDto cliente = listaPerfiles.Find(p => p.Id == 0);// cambiar a cliente
+                        //Modelo.Perfiles perf = new Modelo.Perfiles();
+                       // perf.Id = cliente.Id;
+                       // perf.Nombre = cliente.Nombre;
+                        //usuario.Perfil = new Modelo.Perfiles() { Id = 1, Nombre = "SuperAdmin", Usuario = null };//perf; //Convert.ToInt32(cliente.Id);
+
+                        // MessageBox.Show(usuario.Perfil.Id.ToString()); //cartel que dice exactamente "3"
+
+                        ControladoraUsuarios.AgregarUsuario(usuario);
+
+                        MessageBox.Show("Usuario creado");
+
+                        txtName.Clear();
+                        txtEmail.Clear();
+                        txtDNI.Clear();
+                        txtPassword.Clear();
+                        txtRePassword.Clear();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se pudo ingresar el usuario porque:" + ex.Message);
+                    }
+                }
             }
             else
             {

@@ -13,12 +13,22 @@ using Modelo;
 
 namespace Vista
 {
+    
     public partial class Login : Form
     {
+
+        public Modelo.DTO.UsuariosDto userlogeado;
         public Login()
         {
             InitializeComponent();
             txtPassword.PasswordChar = '•';
+            lblUser.Visible = true;
+            lblPassword.Visible = true;
+            txtUser.Visible = true;
+            txtPassword.Visible = true;
+            btnSignIn.Visible = true;
+            btnSignIn.Visible = true;
+            SingUp.Visible = true;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -42,13 +52,34 @@ namespace Vista
 
         private void picboxShowPW_Click(object sender, EventArgs e)
         {
-            picboxShowPW.ImageLocation = "Img/ShowPW.png";
+            //picboxShowPW.ImageLocation = "Img/ShowPW.png";
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            Users users = new Users();
-            users.Show();
+            //Users users = new Users();
+            //users.ShowDialog();
+            //cofre
+
+            bool login = Controladora.ValidInfoUserCtrl.ValidateUserPassword(txtUser.Text, txtPassword.Text);
+            if (login)
+            {
+                var userlog = new Modelo.DTO.UsuariosDto();
+                var lapeorvariabledelmundo = Controladora.ControladoraUsuarios.GetUsuarios();
+                userlog = lapeorvariabledelmundo.Find(x => x.Email.ToString() == txtUser.Text.ToString());
+                Users users = new Users(userlog.Id);
+                //users.userlogeado = userlog;
+                users.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No se encontro el usuario o la contraseña");
+            }
+
+
+            //cofre
+
+
             /*
             //var ListarUsuarios = ControladoraUsuarios.obtener_instancia().Listar_Usuarios();
             var listausuarios = Controladora.ControladoraUsuarios.GetUsuarios();
@@ -62,14 +93,20 @@ namespace Vista
             else 
             { 
                 MessageBox.Show("Credenciales invalidas"); 
-            }   */       
-            
+            }   */
+
         }
 
         private void SignUp_Click(object sender, EventArgs e)
         {
             Register register = new Register();
-            register.Show();
+            register.ShowDialog();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }
