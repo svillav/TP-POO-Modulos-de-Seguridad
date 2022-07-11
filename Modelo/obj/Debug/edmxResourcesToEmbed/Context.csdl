@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Context" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ContextContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Usuarios" EntityType="Context.Usuario" />
+    <EntitySet Name="Perfil" EntityType="Context.Perfil" />
+    <AssociationSet Name="UsuarioPerfil" Association="Context.UsuarioPerfil">
+      <End EntitySet="Usuarios" Role="Usuario" />
+      <End EntitySet="Perfil" Role="Perfil" />
+    </AssociationSet>
+    <EntitySet Name="Formulario" EntityType="Context.Formulario" />
+    <EntitySet Name="Permiso" EntityType="Context.Permiso" />
+    <AssociationSet Name="PerfilFormulario" Association="Context.PerfilFormulario">
+      <End Role="Perfil" EntitySet="Perfil" />
+      <End Role="Formulario" EntitySet="Formulario" />
+    </AssociationSet>
+    <AssociationSet Name="FormularioPermiso" Association="Context.FormularioPermiso">
+      <End Role="Formulario" EntitySet="Formulario" />
+      <End Role="Permiso" EntitySet="Permiso" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <NavigationProperty Name="Perfil" Relationship="Context.UsuarioPerfil" FromRole="Usuario" ToRole="Perfil" />
+    <Property Name="Nombre" Nullable="false" Type="String" />
+    <Property Name="Email" Nullable="false" Type="String" />
+    <Property Name="Dni" Nullable="false" Type="String" />
+    <Property Name="Contraseña" Nullable="false" Type="String" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <NavigationProperty Name="Usuario" Relationship="Context.UsuarioPerfil" FromRole="Perfil" ToRole="Usuario" />
+    <Property Name="Nombre" Nullable="false" Type="String" />
+    <NavigationProperty Name="Formulario" Relationship="Context.PerfilFormulario" FromRole="Perfil" ToRole="Formulario" />
+  </EntityType>
+  <Association Name="UsuarioPerfil">
+    <End Type="Context.Usuario" Multiplicity="*" Role="Usuario" />
+    <End Type="Context.Perfil" Multiplicity="1" Role="Perfil" />
+  </Association>
+  <EntityType Name="Formulario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Nombre" Nullable="false" Type="String" />
+    <Property Name="NombreSistema" Nullable="false" Type="String" />
+    <NavigationProperty Name="Perfil" Relationship="Context.PerfilFormulario" FromRole="Formulario" ToRole="Perfil" />
+    <NavigationProperty Name="Permiso" Relationship="Context.FormularioPermiso" FromRole="Formulario" ToRole="Permiso" />
+  </EntityType>
+  <EntityType Name="Permiso">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Nombre" Nullable="false" Type="String" />
+    <Property Name="NombreSistema" Nullable="false" Type="String" />
+    <NavigationProperty Name="Formulario" Relationship="Context.FormularioPermiso" FromRole="Permiso" ToRole="Formulario" />
+  </EntityType>
+  <Association Name="PerfilFormulario">
+    <End Type="Context.Perfil" Role="Perfil" Multiplicity="*" />
+    <End Type="Context.Formulario" Role="Formulario" Multiplicity="*" />
+  </Association>
+  <Association Name="FormularioPermiso">
+    <End Type="Context.Formulario" Role="Formulario" Multiplicity="*" />
+    <End Type="Context.Permiso" Role="Permiso" Multiplicity="*" />
+  </Association>
+</Schema>
