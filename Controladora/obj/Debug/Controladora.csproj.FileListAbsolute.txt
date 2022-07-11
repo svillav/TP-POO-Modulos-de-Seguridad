@@ -27,3 +27,20 @@ C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Controladora\obj\De
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Controladora\obj\Debug\Controladora.csproj.CopyComplete
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Controladora\obj\Debug\Controladora.dll
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Controladora\obj\Debug\Controladora.pdb
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\bin\Debug\Controladora.dll.config
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\bin\Debug\Controladora.dll
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\bin\Debug\Controladora.pdb
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\bin\Debug\EntityFramework.dll
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\bin\Debug\Modelo.dll
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\bin\Debug\Newtonsoft.Json.dll
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\bin\Debug\Modelo.pdb
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\bin\Debug\Modelo.dll.config
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\bin\Debug\EntityFramework.xml
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\bin\Debug\Newtonsoft.Json.xml
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\obj\Debug\Controladora.csproj.AssemblyReference.cache
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\obj\Debug\Controladora.csproj.CoreCompileInputs.cache
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\obj\Debug\Controladora.csproj.CopyComplete
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\obj\Debug\Controladora.dll
+C:\Users\cofre\Source\Repos\TP-POO-Modulos-de-Seguridad4\Controladora\obj\Debug\Controladora.pdb

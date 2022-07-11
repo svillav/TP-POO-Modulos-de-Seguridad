@@ -78,13 +78,51 @@ namespace Modelo.DTO
                 Console.WriteLine(ex);
             }
         }
-        public static void EliminarUsuario()
+        public static void EliminarUsuario(string id)
         {
+            try
+            {
+                using (var ctx =new ModulosDeSeguridad())
+                {
+                    var user = ctx.User.Where(x => x.Id.ToString() == id).FirstOrDefault();
+                    user.Profile = ctx.Profile.Where(t => t.Id.ToString() == user.Perfil.ToString()).FirstOrDefault();
+                    ctx.User.Remove(user);
+                    ctx.SaveChanges();
+
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
         }
-        public static void EditarUsuario()
+        public static void EditarUsuario(UsuariosDto usu)
         {
+            try
+            {
+                using (var ctx = new ModulosDeSeguridad())
+                {
+                    var user = ctx.User.Where(x => x.Id.ToString() == usu.Id.ToString()).FirstOrDefault();
+                    ctx.User.Remove(user);
+                    User usueditado = new User();
+                    usueditado.Id = usu.Id;
+                    usueditado.Name = usu.Name;
+                    usueditado.DNI = usu.Dni.ToString(); 
+                    usueditado.Email = usu.Email;
+                    usueditado.Contraseña = usu.Contraseña;
+                    usueditado.Perfil = usu.Perfil;
+                    usueditado.Profile = ctx.Profile.Where(x => x.Id == usu.Perfil).FirstOrDefault();
+                    ctx.User.Add(usueditado);
+                    ctx.SaveChanges();
 
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            
         }
 
     }

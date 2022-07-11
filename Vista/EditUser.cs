@@ -78,14 +78,17 @@ namespace Vista
                     pwvalid = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckValid), Convert.ToInt32(Enums.PropertieType.Password), txtPassword.Text);
                     //los verificadores de base de datos van en el mismo try porque antes con menos seguridad se creaban cuentas y puede
                     //que haya cuentas que tengan menos seguridad pero no hayan cambiado
-                   
+                    emaildb = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckDDBB), Convert.ToInt32(Enums.PropertieType.Email), txtEmail.Text);
+                    dnidb = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckDDBB), Convert.ToInt32(Enums.PropertieType.DNI), txtDNI.Text);
+
 
                     string cartel = "";
                     if (!namevalid) { cartel += "Nombre Invalido"; }
                     if (!emailvalid) { cartel += "\nEmail Invalido"; }
                     if (!dnivalid) { cartel += "\nDNI Invalido"; }
                     if (!pwvalid) { cartel += "\nContraseña Invalida"; }
-                    
+                    if (emaildb == true) { cartel += "\nEl usuario ya existe en la base de datos"; }
+                    if (dnidb == true) { cartel += "\nEl DNI ya existe en la base de datos"; }
                     if (cartel.Length>1) { MessageBox.Show(cartel); }
 
                     if (namevalid == true &&

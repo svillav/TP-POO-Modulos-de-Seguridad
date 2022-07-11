@@ -22,6 +22,14 @@ namespace Controladora
         {
             Modelo.DTO.Usuarios.AgregarUsuario(user);
         }
+        public static void EliminarUsuario(string id)
+        {
+            Modelo.DTO.Usuarios.EliminarUsuario(id);
+        }
+        public static void EditarUsuario(Modelo.DTO.UsuariosDto usuario)
+        {
+            Modelo.DTO.Usuarios.EditarUsuario(usuario);
+        }
         /* public static ControladoraUsuarios obtener_instancia()
          {
              if(_instancia == null)

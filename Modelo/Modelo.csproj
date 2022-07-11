@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="DTO\PerfilesDto.cs" />
     <Compile Include="DTO\UsuariosDto.cs" />
+    <Compile Include="Enum\Enums.cs" />
+    <Compile Include="Metodos\ValidInfoUser.cs" />
     <Compile Include="ModulosDeSeguridad.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,9 +69,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Metodos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
