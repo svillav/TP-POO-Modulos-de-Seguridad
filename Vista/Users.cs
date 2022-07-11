@@ -33,6 +33,7 @@ namespace Vista
             var listaperfiles = Controladora.ControladoraPerfiles.GetPerfiles();
             var listausuarios = Controladora.ControladoraUsuarios.GetUsuarios();
             UserLogeado = listausuarios.Find(x => x.Id == UserLogeadoID);
+            LBCurrentUser.Text = LBCurrentUser.Text + UserLogeado.Email;
            // var userlogeado = listaperfiles.Find(x => x.Id == UserLogeadoID);
             if (UserLogeado.Perfil == listaperfiles.Where(x => x.ProfileN == "SuperAdmin").FirstOrDefault().Id ||
                 UserLogeado.Perfil == listaperfiles.Where(x => x.ProfileN == "Admin").FirstOrDefault().Id ||
@@ -41,8 +42,6 @@ namespace Vista
                 deleteUser.Enabled = true;
                 ModifyUser.Enabled = true;
             }
-
-
 
             try
             {

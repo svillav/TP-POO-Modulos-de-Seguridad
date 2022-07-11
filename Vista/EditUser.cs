@@ -87,16 +87,12 @@ namespace Vista
                     if (!emailvalid) { cartel += "\nEmail Invalido"; }
                     if (!dnivalid) { cartel += "\nDNI Invalido"; }
                     if (!pwvalid) { cartel += "\nContraseña Invalida"; }
-                    if (emaildb == true) { cartel += "\nEl usuario ya existe en la base de datos"; }
-                    if (dnidb == true) { cartel += "\nEl DNI ya existe en la base de datos"; }
                     if (cartel.Length>1) { MessageBox.Show(cartel); }
 
                     if (namevalid == true &&
                     emailvalid == true &&
                     dnivalid == true &&
-                    pwvalid == true &&
-                    emaildb == false &&
-                    dnidb == false)
+                    pwvalid == true)
                     {
                         usermodificado.Id = ide;
                         usermodificado.Name = txtName.Text;

@@ -32,6 +32,7 @@
             this.deleteUser = new System.Windows.Forms.Button();
             this.ModifyUser = new System.Windows.Forms.Button();
             this.RefreshList = new System.Windows.Forms.Button();
+            this.LBCurrentUser = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,11 +75,21 @@
             this.RefreshList.UseVisualStyleBackColor = true;
             this.RefreshList.Click += new System.EventHandler(this.RefreshList_Click);
             // 
+            // LBCurrentUser
+            // 
+            this.LBCurrentUser.AutoSize = true;
+            this.LBCurrentUser.Location = new System.Drawing.Point(600, 439);
+            this.LBCurrentUser.Name = "LBCurrentUser";
+            this.LBCurrentUser.Size = new System.Drawing.Size(107, 13);
+            this.LBCurrentUser.TabIndex = 4;
+            this.LBCurrentUser.Text = "USUARIO ACTUAL: ";
+            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 497);
+            this.Controls.Add(this.LBCurrentUser);
             this.Controls.Add(this.RefreshList);
             this.Controls.Add(this.ModifyUser);
             this.Controls.Add(this.deleteUser);
@@ -87,6 +98,7 @@
             this.Text = "Users";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -96,5 +108,6 @@
         private System.Windows.Forms.Button deleteUser;
         private System.Windows.Forms.Button ModifyUser;
         private System.Windows.Forms.Button RefreshList;
+        private System.Windows.Forms.Label LBCurrentUser;
     }
 }
