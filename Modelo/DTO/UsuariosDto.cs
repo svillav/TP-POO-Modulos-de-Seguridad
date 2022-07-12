@@ -70,7 +70,7 @@ namespace Modelo.DTO
                     userdb.Profile = perfi;
                     ctx.User.Add(userdb);
                     ctx.SaveChanges();
-                }//		User	La evaluación de la función requiere que se ejecuten todos los subprocesos.	System.Collections.Generic.ICollection<Modelo.User>
+                }// User La evaluación de la función requiere que se ejecuten todos los subprocesos. System.Collections.Generic.ICollection<Modelo.User>
 
             }
             catch (Exception ex)

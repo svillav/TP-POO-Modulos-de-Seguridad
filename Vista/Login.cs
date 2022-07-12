@@ -59,8 +59,6 @@ namespace Vista
         {
             //Users users = new Users();
             //users.ShowDialog();
-            //cofre
-
             bool login = Controladora.ValidInfoUserCtrl.ValidateUserPassword(txtUser.Text, Encrypt.EncodePassword(txtPassword.Text));
             if (login)
             {
@@ -75,10 +73,6 @@ namespace Vista
             {
                 MessageBox.Show("No se encontro el usuario o la contraseña");
             }
-
-
-            //cofre
-
 
             /*
             //var ListarUsuarios = ControladoraUsuarios.obtener_instancia().Listar_Usuarios();

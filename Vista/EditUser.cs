@@ -65,7 +65,7 @@ namespace Vista
             var lista = Controladora.ControladoraPerfiles.GetPerfiles();
             Modelo.DTO.UsuariosDto usermodificado = new Modelo.DTO.UsuariosDto();
             bool namevalid = false; bool emailvalid = false; bool dnivalid = false; bool pwvalid = false; //validadores de string
-            bool emaildb = false, dnidb = false; //validadores de ddbb
+            bool emaildb = false, dnidb = false; // DDBB validators
 
             try
             {
@@ -76,11 +76,8 @@ namespace Vista
                     emailvalid = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckValid), Convert.ToInt32(Enums.PropertieType.Email), txtEmail.Text);
                     dnivalid = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckValid), Convert.ToInt32(Enums.PropertieType.DNI), txtDNI.Text);
                     pwvalid = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckValid), Convert.ToInt32(Enums.PropertieType.Password), txtPassword.Text);
-                    //los verificadores de base de datos van en el mismo try porque antes con menos seguridad se creaban cuentas y puede
-                    //que haya cuentas que tengan menos seguridad pero no hayan cambiado
                     emaildb = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckDDBB), Convert.ToInt32(Enums.PropertieType.Email), txtEmail.Text);
                     dnidb = Controladora.ValidInfoUserCtrl.Validate(Convert.ToInt32(Enums.ValidType.CheckDDBB), Convert.ToInt32(Enums.PropertieType.DNI), txtDNI.Text);
-
 
                     string cartel = "";
                     if (!namevalid) { cartel += "Nombre Invalido"; }
@@ -103,11 +100,6 @@ namespace Vista
                         Controladora.ControladoraUsuarios.EditarUsuario(usermodificado);
                         MessageBox.Show("USUARIO MODIFICADO");
                     }
-
-                    
-
-
-
 
                     txtName.Clear();
                     txtEmail.Clear();

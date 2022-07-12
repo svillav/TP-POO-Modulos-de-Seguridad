@@ -10,10 +10,7 @@ namespace Modelo.Metodos
     public class ValidInfoUser
     {
         public bool ValidateLogin { get;private set; }
-        public ValidInfoUser()
-        {
-            //YA VENGO ME FUI A COMPRAR UNA PIZZA
-        }
+        public ValidInfoUser() {}
         public ValidInfoUser(string user, string password)
         {
             bool validemail = Validating(0, 3, user);
@@ -45,11 +42,11 @@ namespace Modelo.Metodos
 
             switch (validtype)
             {
-                case 0:                     //check in database
+                case 0: //check in database
                     bool isinDB = false;
                     switch (propertie)
                     {
-                        case 0: //checkeo nombre
+                        case 0: //check name
                             
                             try
                             {
@@ -69,7 +66,7 @@ namespace Modelo.Metodos
                             }
                             return isinDB;
 
-                        case 1: //este es para apellido
+                        case 1: //for lastname
                             try 
                             {
                                 using (var ctx = new Modelo.ModulosDeSeguridad())
@@ -124,7 +121,7 @@ namespace Modelo.Metodos
                                 Console.WriteLine(ex);
                             }
                             return isinDB;
-                        case 4: //este es para usuarios, en caso de agregar usuario ademas de email
+                        case 4: // for users, add user & email case
                             try
                             {
                                 using (var ctx = new Modelo.ModulosDeSeguridad())
@@ -161,7 +158,7 @@ namespace Modelo.Metodos
                             }
                             return isinDB;
 
-                        case 6: //fecha de nacimiento para el caso futuro que se agregue
+                        case 6: // birth date for future added case
                             try
                             {
                                 using (var ctx = new Modelo.ModulosDeSeguridad())
@@ -184,7 +181,7 @@ namespace Modelo.Metodos
                             Console.WriteLine("CASE INCORRECTO");
                             return false;
                     }
-                case 1:                                     //check the string  
+                case 1: //check the string  
                     bool sheet = false;
                     switch (propertie)
                     {

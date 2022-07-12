@@ -16,7 +16,7 @@ namespace Controladora
         {
             return Modelo.Metodos.ValidInfoUser.Validating(ValidType, ValidParameter, data);
         }
-        public static bool ValidateUserPassword(string email, string password) //valida login
+        public static bool ValidateUserPassword(string email, string password) // login validation
         {
             Modelo.Metodos.ValidInfoUser valid =  new Modelo.Metodos.ValidInfoUser(email, password);
             return valid.ValidateLogin;
