@@ -61,7 +61,7 @@ namespace Vista
             //users.ShowDialog();
             //cofre
 
-            bool login = Controladora.ValidInfoUserCtrl.ValidateUserPassword(txtUser.Text, txtPassword.Text);
+            bool login = Controladora.ValidInfoUserCtrl.ValidateUserPassword(txtUser.Text, Encrypt.EncodePassword(txtPassword.Text));
             if (login)
             {
                 var userlog = new Modelo.DTO.UsuariosDto();
