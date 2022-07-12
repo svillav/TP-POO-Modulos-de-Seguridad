@@ -141,7 +141,7 @@ namespace Vista
                         usuario.Name = txtName.Text;
                         usuario.Dni = int.Parse(txtDNI.Text);
                         usuario.Email = txtEmail.Text;
-                        usuario.Contraseña = txtPassword.Text;
+                        usuario.Contraseña = Encrypt.EncodePassword(txtPassword.Text);
                         usuario.Perfil = 1;
 
                         //var listaPerfiles = Controladora.ControladoraPerfiles.GetPerfiles();
