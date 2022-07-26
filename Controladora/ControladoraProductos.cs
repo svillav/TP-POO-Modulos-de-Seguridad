@@ -8,10 +8,10 @@ namespace Controladora
 {
     public class ControladoraProductos
     {
-        /*public static List<Modelo.DTO.ProductosDto> GetProducts()
+        public static List<Modelo.DTO.ProductosDto> GetProducts()
         {
             return Modelo.DTO.Productos.GetProducts();
-        }*/
+        }
         /*public static void AgregarUsuario(Modelo.DTO.UsuariosDto user)
         {
             Modelo.DTO.Usuarios.AgregarUsuario(user);

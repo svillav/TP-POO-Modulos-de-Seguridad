@@ -53,70 +53,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Context.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Context.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="ModulosDeSeguridad.cs" />
     <Compile Include="DTO\PerfilesDto.cs" />
     <Compile Include="DTO\ProductosDto.cs" />
     <Compile Include="DTO\UsuariosDto.cs" />
     <Compile Include="Enum\Enums.cs" />
-    <Compile Include="Formulario.cs">
-      <DependentUpon>Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="Metodos\ValidInfoUser.cs" />
-    <Compile Include="ModulosDeSeguridad.cs" />
-    <Compile Include="Perfil.cs">
-      <DependentUpon>Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Permiso.cs">
-      <DependentUpon>Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="Usuario.cs">
-      <DependentUpon>Context.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Context.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Context.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Context.edmx.diagram">
-      <DependentUpon>Context.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Context.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Context.Context.cs</LastGenOutput>
-      <DependentUpon>Context.edmx</DependentUpon>
-    </Content>
-    <Content Include="Context.edmx.sql" />
-    <Content Include="Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Context.cs</LastGenOutput>
-      <DependentUpon>Context.edmx</DependentUpon>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

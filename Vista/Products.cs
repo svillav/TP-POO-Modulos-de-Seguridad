@@ -19,7 +19,7 @@ namespace Vista
         {
             InitializeComponent();
 
-            dgvProducts.ColumnCount = 4;
+            /*dgvProducts.ColumnCount = 4;
 
             dgvProducts.Columns[0].Name = "Producto";
             dgvProducts.Columns[1].Name = "Marca";
@@ -33,13 +33,14 @@ namespace Vista
             row = new string[] { "Ketchup", "Danica", "Picante", "10" };
             dgvProducts.Rows.Add(row);
             row = new string[] { "Jamon", "Paladini", "Serrano", "20" };
-            dgvProducts.Rows.Add(row);
+            dgvProducts.Rows.Add(row);*/
 
             try
             {
-               // List<Modelo.DTO.ProductosDto> listProducts = Controladora.ControladoraProductos.GetProducts();
-                //dgvProducts.DataSource = null;
-                //dgvProducts.DataSource = listProducts;
+               List<Modelo.DTO.ProductosDto> listProducts = Controladora.ControladoraProductos.GetProducts();
+               dgvProducts.DataSource = null;
+               dgvProducts.DataSource = listProducts;
+               putColumnsAddAndSubstract();
 
             }
             catch (Exception e)
@@ -48,7 +49,7 @@ namespace Vista
             }
 
             //agregar botones de + y - entre la columna de stock
-            putColumnsAddAndSubstract();
+            
             
         }
 

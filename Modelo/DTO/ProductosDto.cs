@@ -20,7 +20,7 @@ namespace Modelo.DTO
     {
         public Productos() { }
 
-        /*public static List<ProductosDto> GetProducts()
+        public static List<ProductosDto> GetProducts()
         {
             List<ProductosDto> ProductosDto;
             try
@@ -49,6 +49,6 @@ namespace Modelo.DTO
             {
                 return new List<ProductosDto>();
             }
-        }*/
+        }
     }
 }
