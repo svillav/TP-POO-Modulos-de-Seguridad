@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Modelo;
+using Controladora;
+using Modelo.Enum;
 
 namespace Vista
 {
@@ -31,6 +34,18 @@ namespace Vista
             dgvProducts.Rows.Add(row);
             row = new string[] { "Jamon", "Paladini", "Serrano", "20" };
             dgvProducts.Rows.Add(row);
+
+            try
+            {
+               // List<Modelo.DTO.ProductosDto> listProducts = Controladora.ControladoraProductos.GetProducts();
+                //dgvProducts.DataSource = null;
+                //dgvProducts.DataSource = listProducts;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al listar usuarios: " + e.Message);
+            }
 
             //agregar botones de + y - entre la columna de stock
             putColumnsAddAndSubstract();

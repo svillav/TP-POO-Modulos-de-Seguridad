@@ -14,6 +14,7 @@ namespace Modelo
 
         public virtual DbSet<Profile> Profile { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

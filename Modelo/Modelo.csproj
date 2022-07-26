@@ -69,6 +69,7 @@
       <DependentUpon>Context.edmx</DependentUpon>
     </Compile>
     <Compile Include="DTO\PerfilesDto.cs" />
+    <Compile Include="DTO\ProductosDto.cs" />
     <Compile Include="DTO\UsuariosDto.cs" />
     <Compile Include="Enum\Enums.cs" />
     <Compile Include="Formulario.cs">
@@ -82,6 +83,7 @@
     <Compile Include="Permiso.cs">
       <DependentUpon>Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Product.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
