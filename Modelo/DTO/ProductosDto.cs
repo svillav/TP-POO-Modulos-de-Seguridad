@@ -50,5 +50,31 @@ namespace Modelo.DTO
                 return new List<ProductosDto>();
             }
         }
+
+        public static void EditarProducto(ProductosDto prod)
+        {
+            try
+            {
+                using (var ctx = new ModulosDeSeguridad())
+                {
+                    var product = ctx.Product.Where(x => x.ProductName == prod.ProductName).FirstOrDefault();
+                    ctx.Product.Remove(product);
+
+                    Product productoEditado = new Product();
+                    productoEditado.ProductName = prod.ProductName;
+                    productoEditado.BrandName = prod.BrandName;
+                    productoEditado.DescriptionProduct = prod.DescriptionProduct;
+                    productoEditado.StockProduct = prod.StockProduct;
+                    ctx.Product.Add(productoEditado);
+                    ctx.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+        }
     }
 }

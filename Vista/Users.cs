@@ -124,7 +124,7 @@ namespace Vista
             }
             else
             {
-                MessageBox.Show("Error al eliminar el usuario");
+                MessageBox.Show("Error al modificar el usuario");
             }
         }
 
