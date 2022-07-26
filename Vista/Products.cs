@@ -111,5 +111,31 @@ namespace Vista
                 }
             }
         }
+
+        private void dgvProducts_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            //RESTAR UNIDAD
+            var listProducts = Controladora.ControladoraProductos.GetProducts();
+            Modelo.DTO.ProductosDto productModified = new Modelo.DTO.ProductosDto();
+
+            try
+            {
+                var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[2].Value.ToString());
+
+
+                productModified.ProductName = currentProduct.ProductName;
+                productModified.BrandName = currentProduct.BrandName;
+                productModified.DescriptionProduct = currentProduct.DescriptionProduct;
+                productModified.StockProduct = int.Parse(this.dgvProducts.Rows[e.RowIndex].Cells[5].Value.ToString());
+
+                this.dgvProducts.Rows[e.RowIndex].Cells[5].Value = productModified.StockProduct;
+                Controladora.ControladoraProductos.EditarProducto(productModified);
+
+            }
+            catch
+            {
+                MessageBox.Show("NO SE PUDO MODIFICAR EL PRODUCTO");
+            }
+        }
     }
 }
