@@ -98,3 +98,4 @@ C:\Users\usuario\source\repos\TP-POO-Modulos-de-Seguridad4\Vista\obj\Debug\Vista
 C:\Users\usuario\source\repos\TP-POO-Modulos-de-Seguridad4\Vista\obj\Debug\Vista.exe
 C:\Users\usuario\source\repos\TP-POO-Modulos-de-Seguridad4\Vista\obj\Debug\Vista.pdb
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Vista\obj\Debug\Vista.EditUser.resources
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Vista\obj\Debug\Vista.Products.resources
