@@ -42,8 +42,6 @@ namespace Vista
                 txtPassword.Text = usu.Contraseña;
                 txtRePassword.Text = usu.Contraseña;
 
-
-
             }
             else
             {
@@ -51,8 +49,6 @@ namespace Vista
                 btnSubmit.Enabled = false;
             }
             
-
-
         }
 
         private void ddlPerfiles_SelectedIndexChanged(object sender, EventArgs e)

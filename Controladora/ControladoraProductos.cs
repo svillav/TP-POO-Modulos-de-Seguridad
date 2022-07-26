@@ -15,14 +15,14 @@ namespace Controladora
         /*public static void AgregarUsuario(Modelo.DTO.UsuariosDto user)
         {
             Modelo.DTO.Usuarios.AgregarUsuario(user);
-        }
+        }*/
         public static void EliminarUsuario(string id)
         {
             Modelo.DTO.Usuarios.EliminarUsuario(id);
         }
-        public static void EditarUsuario(Modelo.DTO.UsuariosDto usuario)
+        public static void EditarProducto(Modelo.DTO.ProductosDto producto)
         {
-            Modelo.DTO.Usuarios.EditarUsuario(usuario);
-        }*/
+            Modelo.DTO.Productos.EditarProducto(producto);
+        }
     }
 }
