@@ -92,7 +92,7 @@ namespace Vista
         {
             //MessageBox.Show(e.ColumnIndex.ToString());
 
-            MessageBox.Show(e.ColumnIndex.ToString() + " " + e.RowIndex.ToString());
+            //MessageBox.Show(e.ColumnIndex.ToString() + " " + e.RowIndex.ToString());
 
             if (e.ColumnIndex == 0)
             {
@@ -103,7 +103,6 @@ namespace Vista
                 try
                 {
                     var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString());
-                    
 
                     productModified.ProductName = currentProduct.ProductName;
                     productModified.BrandName = currentProduct.BrandName;
@@ -111,7 +110,7 @@ namespace Vista
                     productModified.StockProduct = currentProduct.StockProduct + 1;
 
                     this.dgvProducts.Rows[e.RowIndex].Cells[7].Value = productModified.StockProduct;
-                    Controladora.ControladoraProductos.EditarProducto(productModified);
+                    Controladora.ControladoraProductos.EditProduct(productModified);
 
                 }
                 catch
@@ -137,7 +136,7 @@ namespace Vista
                     productModified.StockProduct = currentProduct.StockProduct - 1;
 
                     this.dgvProducts.Rows[e.RowIndex].Cells[7].Value = productModified.StockProduct;
-                    Controladora.ControladoraProductos.EditarProducto(productModified);
+                    Controladora.ControladoraProductos.EditProduct(productModified);
 
                 }
                 catch
@@ -156,19 +155,39 @@ namespace Vista
                 {
                     var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString());
 
-
                     productModified.ProductName = currentProduct.ProductName;
                     productModified.BrandName = currentProduct.BrandName;
                     productModified.DescriptionProduct = currentProduct.DescriptionProduct;
                     productModified.StockProduct = currentProduct.StockProduct;
 
                     this.dgvProducts.Rows[e.RowIndex].Cells[7].Value = productModified.StockProduct;
-                    Controladora.ControladoraProductos.EditarProducto(productModified);
+                    Controladora.ControladoraProductos.EditProduct(productModified);
 
                 }
                 catch
                 {
                     MessageBox.Show("NO SE PUDO MODIFICAR EL PRODUCTO");
+                }
+            }
+            else if(e.ColumnIndex == 3)
+            {
+                //ELIMINAR USUARIO
+                try
+                {
+                    var listProducts = Controladora.ControladoraProductos.GetProducts();
+
+                    var currentProduct = listProducts.Find(x => x.ProductName == this.dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString());
+                    Controladora.ControladoraProductos.DeleteProduct(currentProduct.ProductName);
+                    listProducts = Controladora.ControladoraProductos.GetProducts();
+                    dgvProducts.DataSource = null;
+                    dgvProducts.Columns.Clear();
+                    dgvProducts.DataSource = listProducts;
+                    putColumnsAddAndSubstract();
+
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show("Error al listar usuarios: " + exp);
                 }
             }
             else if(e.ColumnIndex == 7)
@@ -190,13 +209,13 @@ namespace Vista
             {
                 var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString());
 
-                productModified.ProductName = this.dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString();
-                productModified.BrandName = this.dgvProducts.Rows[e.RowIndex].Cells[5].Value.ToString();
-                productModified.DescriptionProduct = this.dgvProducts.Rows[e.RowIndex].Cells[6].Value.ToString();
+                productModified.ProductName = currentProduct.ProductName;
+                productModified.BrandName = currentProduct.BrandName;
+                productModified.DescriptionProduct = currentProduct.DescriptionProduct;
                 productModified.StockProduct = int.Parse(this.dgvProducts.Rows[e.RowIndex].Cells[7].Value.ToString());
 
                 this.dgvProducts.Rows[e.RowIndex].Cells[7].Value = productModified.StockProduct;
-                Controladora.ControladoraProductos.EditarProducto(productModified);
+                Controladora.ControladoraProductos.EditProduct(productModified);
 
             }
             catch
@@ -206,5 +225,26 @@ namespace Vista
             }
         }
 
+        private void addProduct_Click(object sender, EventArgs e)
+        {
+            AddProduct addProduct = new AddProduct();
+            addProduct.Show();
+        }
+
+        private void UpdateList_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var listProducts = Controladora.ControladoraProductos.GetProducts();
+                dgvProducts.DataSource = null;
+                dgvProducts.Columns.Clear();
+                dgvProducts.DataSource = listProducts;
+                putColumnsAddAndSubstract();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar productos: " + ex);
+            }
+        }
     }
 }

@@ -12,17 +12,17 @@ namespace Controladora
         {
             return Modelo.DTO.Productos.GetProducts();
         }
-        /*public static void AgregarUsuario(Modelo.DTO.UsuariosDto user)
+        public static void AddProduct(Modelo.DTO.ProductosDto product)
         {
-            Modelo.DTO.Usuarios.AgregarUsuario(user);
-        }*/
-        public static void EliminarUsuario(string id)
-        {
-            Modelo.DTO.Usuarios.EliminarUsuario(id);
+            Modelo.DTO.Productos.AddProduct(product);
         }
-        public static void EditarProducto(Modelo.DTO.ProductosDto producto)
+        public static void DeleteProduct(string Name)
         {
-            Modelo.DTO.Productos.EditarProducto(producto);
+            Modelo.DTO.Productos.DeleteProduct(Name);
+        }
+        public static void EditProduct(Modelo.DTO.ProductosDto producto)
+        {
+            Modelo.DTO.Productos.EditProduct(producto);
         }
     }
 }

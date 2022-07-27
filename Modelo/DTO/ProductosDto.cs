@@ -51,7 +51,7 @@ namespace Modelo.DTO
             }
         }
 
-        public static void EditarProducto(ProductosDto prod)
+        public static void EditProduct(ProductosDto prod)
         {
             try
             {
@@ -75,6 +75,47 @@ namespace Modelo.DTO
                 Console.WriteLine(ex);
             }
 
+        }
+
+        public static void DeleteProduct(string Name)
+        {
+            try
+            {
+                using (var ctx = new ModulosDeSeguridad())
+                {
+                    var product = ctx.Product.Where(x => x.ProductName == Name).FirstOrDefault();
+                    ctx.Product.Remove(product);
+                    ctx.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+        }
+
+        public static void AddProduct(Modelo.DTO.ProductosDto product)
+        {
+            try
+            {
+                using (var ctx = new ModulosDeSeguridad())
+                {
+                    Product newProduct = new Product();
+                    newProduct.ProductName = product.ProductName;
+                    newProduct.BrandName = product.BrandName;
+                    newProduct.DescriptionProduct = product.DescriptionProduct;
+                    newProduct.StockProduct = product.StockProduct;
+                    ctx.Product.Add(newProduct);
+                    ctx.SaveChanges();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }
