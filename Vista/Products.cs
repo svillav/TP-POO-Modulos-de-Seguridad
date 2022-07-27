@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Modelo;
 using Controladora;
 using Modelo.Enum;
+using System.IO;
 
 namespace Vista
 {
@@ -30,7 +31,7 @@ namespace Vista
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error al listar usuarios: " + e.Message);
+                MessageBox.Show("Error: " + e.Message);
             }          
             
         }
@@ -53,6 +54,37 @@ namespace Vista
 
             dgvProducts.Columns[3].DefaultCellStyle.Font = new System.Drawing.Font("Verdana", 12F, FontStyle.Bold);
             dgvProducts.Columns[5].DefaultCellStyle.Font = new System.Drawing.Font("Verdana", 12F, FontStyle.Bold);
+
+            DataGridViewImageColumn DeleteImg = new DataGridViewImageColumn();
+            DataGridViewImageColumn EditImg = new DataGridViewImageColumn();
+
+            string deleteFile = "delete.png";
+            string editFile = "edit.png";
+            string DirDebug = System.IO.Directory.GetCurrentDirectory();
+            string DirProject = DirDebug;
+
+            for (int counter_slash = 0; counter_slash < 3; counter_slash++)
+            {
+                DirProject = DirProject.Substring(0, DirProject.LastIndexOf(@"\"));
+            }
+
+            string pathDelete = Path.Combine(DirProject, @"Vista\Img", deleteFile);
+            string patEdit = Path.Combine(DirProject, @"Vista\Img", editFile);
+
+            Image imageDelete = Image.FromFile(pathDelete);
+            Image imageEdit = Image.FromFile(patEdit);
+
+            DeleteImg.Image = imageEdit;
+            dgvProducts.Columns.Insert(6, DeleteImg);
+            DeleteImg.HeaderText = "Delete";
+            DeleteImg.Name = "imgDelete";
+
+            EditImg.Image = imageDelete;
+            dgvProducts.Columns.Insert(7, EditImg);
+            EditImg.HeaderText = "Edit";
+            EditImg.Name = "imgDelete";
+
+
         }
 
         private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -114,14 +146,13 @@ namespace Vista
 
         private void dgvProducts_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            //RESTAR UNIDAD
+            //EDITAR MANUALMENTE EL STOCK
             var listProducts = Controladora.ControladoraProductos.GetProducts();
             Modelo.DTO.ProductosDto productModified = new Modelo.DTO.ProductosDto();
 
             try
             {
                 var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[2].Value.ToString());
-
 
                 productModified.ProductName = currentProduct.ProductName;
                 productModified.BrandName = currentProduct.BrandName;
@@ -137,5 +168,6 @@ namespace Vista
                 MessageBox.Show("NO SE PUDO MODIFICAR EL PRODUCTO");
             }
         }
+
     }
 }

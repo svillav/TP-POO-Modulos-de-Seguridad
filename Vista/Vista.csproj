@@ -131,6 +131,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Img\delete.png" />
+    <Content Include="Img\edit.png" />
     <Content Include="Img\ShowPW.png" />
   </ItemGroup>
   <ItemGroup>
