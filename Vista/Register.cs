@@ -70,11 +70,6 @@ namespace Vista
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             
-
-
-
-
-
             if (txtName.Text != string.Empty && txtEmail.Text != string.Empty && txtPassword.Text != string.Empty)
             {
                 bool namevalid = false; bool emailvalid = false; bool dnivalid = false;bool pwvalid = false; //validadores de string
@@ -143,15 +138,6 @@ namespace Vista
                         usuario.Email = txtEmail.Text;
                         usuario.Contraseña = Encrypt.EncodePassword(txtPassword.Text);
                         usuario.Perfil = 1;
-
-                        //var listaPerfiles = Controladora.ControladoraPerfiles.GetPerfiles();
-                       // Modelo.DTO.PerfilesDto cliente = listaPerfiles.Find(p => p.Id == 0);// cambiar a cliente
-                        //Modelo.Perfiles perf = new Modelo.Perfiles();
-                       // perf.Id = cliente.Id;
-                       // perf.Nombre = cliente.Nombre;
-                        //usuario.Perfil = new Modelo.Perfiles() { Id = 1, Nombre = "SuperAdmin", Usuario = null };//perf; //Convert.ToInt32(cliente.Id);
-
-                        // MessageBox.Show(usuario.Perfil.Id.ToString()); //cartel que dice exactamente "3"
 
                         ControladoraUsuarios.AgregarUsuario(usuario);
 
