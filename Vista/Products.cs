@@ -16,6 +16,9 @@ namespace Vista
 {
     public partial class Products : Form
     {
+
+        bool firstTime = false;
+
         public Products()
         {
             InitializeComponent();
@@ -74,22 +77,22 @@ namespace Vista
             Image imageDelete = Image.FromFile(pathDelete);
             Image imageEdit = Image.FromFile(patEdit);
 
-            DeleteImg.Image = imageEdit;
-            dgvProducts.Columns.Insert(6, DeleteImg);
-            DeleteImg.HeaderText = "Delete";
-            DeleteImg.Name = "imgDelete";
-
-            EditImg.Image = imageDelete;
-            dgvProducts.Columns.Insert(7, EditImg);
+            EditImg.Image = imageEdit;
+            dgvProducts.Columns.Insert(6, EditImg);
             EditImg.HeaderText = "Edit";
             EditImg.Name = "imgDelete";
 
-
+            DeleteImg.Image = imageDelete;
+            dgvProducts.Columns.Insert(7, DeleteImg);
+            DeleteImg.HeaderText = "Delete";
+            DeleteImg.Name = "imgDelete";
         }
 
         private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //MessageBox.Show(e.ColumnIndex.ToString());
+
+            MessageBox.Show(e.ColumnIndex.ToString() + " " + e.RowIndex.ToString());
 
             if (e.ColumnIndex == 0)
             {
@@ -99,7 +102,7 @@ namespace Vista
 
                 try
                 {
-                    var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString());
                     
 
                     productModified.ProductName = currentProduct.ProductName;
@@ -107,7 +110,7 @@ namespace Vista
                     productModified.DescriptionProduct = currentProduct.DescriptionProduct;
                     productModified.StockProduct = currentProduct.StockProduct + 1;
 
-                    this.dgvProducts.Rows[e.RowIndex].Cells[5].Value = productModified.StockProduct;
+                    this.dgvProducts.Rows[e.RowIndex].Cells[7].Value = productModified.StockProduct;
                     Controladora.ControladoraProductos.EditarProducto(productModified);
 
                 }
@@ -125,7 +128,7 @@ namespace Vista
 
                 try
                 {
-                    var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString());
 
 
                     productModified.ProductName = currentProduct.ProductName;
@@ -133,7 +136,7 @@ namespace Vista
                     productModified.DescriptionProduct = currentProduct.DescriptionProduct;
                     productModified.StockProduct = currentProduct.StockProduct - 1;
 
-                    this.dgvProducts.Rows[e.RowIndex].Cells[5].Value = productModified.StockProduct;
+                    this.dgvProducts.Rows[e.RowIndex].Cells[7].Value = productModified.StockProduct;
                     Controladora.ControladoraProductos.EditarProducto(productModified);
 
                 }
@@ -142,30 +145,64 @@ namespace Vista
                     MessageBox.Show("NO SE PUDO MODIFICAR EL PRODUCTO");
                 }
             }
+            else if(e.ColumnIndex == 2)
+            {
+                //MODIFICAR PRODUCTO
+
+                var listProducts = Controladora.ControladoraProductos.GetProducts();
+                Modelo.DTO.ProductosDto productModified = new Modelo.DTO.ProductosDto();
+
+                try
+                {
+                    var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString());
+
+
+                    productModified.ProductName = currentProduct.ProductName;
+                    productModified.BrandName = currentProduct.BrandName;
+                    productModified.DescriptionProduct = currentProduct.DescriptionProduct;
+                    productModified.StockProduct = currentProduct.StockProduct;
+
+                    this.dgvProducts.Rows[e.RowIndex].Cells[7].Value = productModified.StockProduct;
+                    Controladora.ControladoraProductos.EditarProducto(productModified);
+
+                }
+                catch
+                {
+                    MessageBox.Show("NO SE PUDO MODIFICAR EL PRODUCTO");
+                }
+            }
+            else if(e.ColumnIndex == 7)
+            {
+                firstTime = true;
+            }
         }
 
         private void dgvProducts_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             //EDITAR MANUALMENTE EL STOCK
+
+            if (firstTime) 
+            {
             var listProducts = Controladora.ControladoraProductos.GetProducts();
             Modelo.DTO.ProductosDto productModified = new Modelo.DTO.ProductosDto();
 
             try
             {
-                var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[2].Value.ToString());
+                var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString());
 
-                productModified.ProductName = currentProduct.ProductName;
-                productModified.BrandName = currentProduct.BrandName;
-                productModified.DescriptionProduct = currentProduct.DescriptionProduct;
-                productModified.StockProduct = int.Parse(this.dgvProducts.Rows[e.RowIndex].Cells[5].Value.ToString());
+                productModified.ProductName = this.dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString();
+                productModified.BrandName = this.dgvProducts.Rows[e.RowIndex].Cells[5].Value.ToString();
+                productModified.DescriptionProduct = this.dgvProducts.Rows[e.RowIndex].Cells[6].Value.ToString();
+                productModified.StockProduct = int.Parse(this.dgvProducts.Rows[e.RowIndex].Cells[7].Value.ToString());
 
-                this.dgvProducts.Rows[e.RowIndex].Cells[5].Value = productModified.StockProduct;
+                this.dgvProducts.Rows[e.RowIndex].Cells[7].Value = productModified.StockProduct;
                 Controladora.ControladoraProductos.EditarProducto(productModified);
 
             }
             catch
             {
                 MessageBox.Show("NO SE PUDO MODIFICAR EL PRODUCTO");
+            }
             }
         }
 
