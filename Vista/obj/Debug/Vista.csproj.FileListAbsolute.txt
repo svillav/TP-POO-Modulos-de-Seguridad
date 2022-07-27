@@ -101,3 +101,4 @@ C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Vista\obj\Debug\Vis
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Vista\obj\Debug\Vista.Products.resources
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Vista\obj\Debug\Vista.AddProduct.resources
 C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Vista\obj\Debug\Vista.EditProduct.resources
+C:\Users\Flia. Ballester\Desktop\TP-POO-Modulos-de-Seguridad\Vista\obj\Debug\Vista.Function.resources

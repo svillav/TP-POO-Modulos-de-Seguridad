@@ -145,8 +145,7 @@ namespace Vista
 
         private void Products(object sender, EventArgs e)
         {
-            Products products = new Products();
-            products.Show();
+
         }
     }
 }
