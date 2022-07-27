@@ -18,6 +18,7 @@ namespace Vista
     {
 
         bool firstTime = false;
+        int rowIndex = 0;
 
         public Products()
         {
@@ -93,6 +94,8 @@ namespace Vista
             //MessageBox.Show(e.ColumnIndex.ToString());
 
             //MessageBox.Show(e.ColumnIndex.ToString() + " " + e.RowIndex.ToString());
+
+            rowIndex = int.Parse(e.RowIndex.ToString());
 
             if (e.ColumnIndex == 0)
             {
@@ -245,6 +248,19 @@ namespace Vista
             {
                 MessageBox.Show("Error al listar productos: " + ex);
             }
+        }
+
+        private void ModifyProduct_Click(object sender, EventArgs e)
+        {
+            var listProducts = Controladora.ControladoraProductos.GetProducts();
+            var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[rowIndex].Cells[4].Value.ToString());
+            EditProduct editProduct = new EditProduct(currentProduct.ProductName);
+            editProduct.Show();
+        }
+
+        private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }
