@@ -20,9 +20,25 @@ namespace Vista
         bool firstTime = false;
         int rowIndex = 0;
 
-        public Products()
+        public Products(int IdUserLog)
         {
             InitializeComponent();
+
+            var listaperfiles = Controladora.ControladoraPerfiles.GetPerfiles();
+            var listausuarios = Controladora.ControladoraUsuarios.GetUsuarios();
+            Modelo.DTO.UsuariosDto UserLogeado = listausuarios.Find(x => x.Id == IdUserLog);
+
+            //MessageBox.Show(UserLogeado.Perfil.ToString());
+            int profileAdmin = (int) Modelo.Enum.Enums.ProfileUser.Admin;
+
+            //MessageBox.Show(profile.ToString() + " " + UserLogeado.Perfil.ToString());
+
+            //verifico que sea usuario administrador
+            if(UserLogeado.Perfil == profileAdmin)
+            {
+
+            }
+
 
             try
             {

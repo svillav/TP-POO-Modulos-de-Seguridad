@@ -65,9 +65,9 @@ namespace Vista
                 var userlog = new Modelo.DTO.UsuariosDto();
                 var lapeorvariabledelmundo = Controladora.ControladoraUsuarios.GetUsuarios();
                 userlog = lapeorvariabledelmundo.Find(x => x.Email.ToString() == txtUser.Text.ToString());
-                Users users = new Users(userlog.Id);
-                //users.userlogeado = userlog;
-                users.ShowDialog();
+
+                Function function = new Function(userlog.Id);
+                function.Show();
             }
             else
             {

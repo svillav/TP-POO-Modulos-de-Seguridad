@@ -33,7 +33,6 @@
             this.ModifyUser = new System.Windows.Forms.Button();
             this.RefreshList = new System.Windows.Forms.Button();
             this.LBCurrentUser = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,28 +78,17 @@
             // LBCurrentUser
             // 
             this.LBCurrentUser.AutoSize = true;
-            this.LBCurrentUser.Location = new System.Drawing.Point(600, 439);
+            this.LBCurrentUser.Location = new System.Drawing.Point(544, 449);
             this.LBCurrentUser.Name = "LBCurrentUser";
             this.LBCurrentUser.Size = new System.Drawing.Size(107, 13);
             this.LBCurrentUser.TabIndex = 4;
             this.LBCurrentUser.Text = "USUARIO ACTUAL: ";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(483, 444);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Products);
             // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 497);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.LBCurrentUser);
             this.Controls.Add(this.RefreshList);
             this.Controls.Add(this.ModifyUser);
@@ -121,6 +109,5 @@
         private System.Windows.Forms.Button ModifyUser;
         private System.Windows.Forms.Button RefreshList;
         private System.Windows.Forms.Label LBCurrentUser;
-        private System.Windows.Forms.Button button1;
     }
 }
