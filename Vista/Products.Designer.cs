@@ -31,7 +31,6 @@
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.addProduct = new System.Windows.Forms.Button();
             this.UpdateList = new System.Windows.Forms.Button();
-            this.ModifyProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +58,7 @@
             // 
             // UpdateList
             // 
-            this.UpdateList.Location = new System.Drawing.Point(448, 448);
+            this.UpdateList.Location = new System.Drawing.Point(223, 448);
             this.UpdateList.Name = "UpdateList";
             this.UpdateList.Size = new System.Drawing.Size(178, 31);
             this.UpdateList.TabIndex = 2;
@@ -67,22 +66,11 @@
             this.UpdateList.UseVisualStyleBackColor = true;
             this.UpdateList.Click += new System.EventHandler(this.UpdateList_Click);
             // 
-            // ModifyProduct
-            // 
-            this.ModifyProduct.Location = new System.Drawing.Point(226, 448);
-            this.ModifyProduct.Name = "ModifyProduct";
-            this.ModifyProduct.Size = new System.Drawing.Size(178, 31);
-            this.ModifyProduct.TabIndex = 3;
-            this.ModifyProduct.Text = "Modificar Producto";
-            this.ModifyProduct.UseVisualStyleBackColor = true;
-            this.ModifyProduct.Click += new System.EventHandler(this.ModifyProduct_Click);
-            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 491);
-            this.Controls.Add(this.ModifyProduct);
             this.Controls.Add(this.UpdateList);
             this.Controls.Add(this.addProduct);
             this.Controls.Add(this.dgvProducts);
@@ -98,6 +86,5 @@
         private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.Button addProduct;
         private System.Windows.Forms.Button UpdateList;
-        private System.Windows.Forms.Button ModifyProduct;
     }
 }

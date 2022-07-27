@@ -91,9 +91,6 @@ namespace Vista
 
         private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //MessageBox.Show(e.ColumnIndex.ToString());
-
-            //MessageBox.Show(e.ColumnIndex.ToString() + " " + e.RowIndex.ToString());
 
             rowIndex = int.Parse(e.RowIndex.ToString());
 
@@ -150,27 +147,10 @@ namespace Vista
             else if(e.ColumnIndex == 2)
             {
                 //MODIFICAR PRODUCTO
-
                 var listProducts = Controladora.ControladoraProductos.GetProducts();
-                Modelo.DTO.ProductosDto productModified = new Modelo.DTO.ProductosDto();
-
-                try
-                {
-                    var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString());
-
-                    productModified.ProductName = currentProduct.ProductName;
-                    productModified.BrandName = currentProduct.BrandName;
-                    productModified.DescriptionProduct = currentProduct.DescriptionProduct;
-                    productModified.StockProduct = currentProduct.StockProduct;
-
-                    this.dgvProducts.Rows[e.RowIndex].Cells[7].Value = productModified.StockProduct;
-                    Controladora.ControladoraProductos.EditProduct(productModified);
-
-                }
-                catch
-                {
-                    MessageBox.Show("NO SE PUDO MODIFICAR EL PRODUCTO");
-                }
+                var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[rowIndex].Cells[4].Value.ToString());
+                EditProduct editProduct = new EditProduct(currentProduct.ProductName);
+                editProduct.Show();
             }
             else if(e.ColumnIndex == 3)
             {
@@ -252,10 +232,7 @@ namespace Vista
 
         private void ModifyProduct_Click(object sender, EventArgs e)
         {
-            var listProducts = Controladora.ControladoraProductos.GetProducts();
-            var currentProduct = listProducts.Find(x => x.ProductName.ToString() == this.dgvProducts.Rows[rowIndex].Cells[4].Value.ToString());
-            EditProduct editProduct = new EditProduct(currentProduct.ProductName);
-            editProduct.Show();
+
         }
 
         private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
