@@ -24,6 +24,9 @@ namespace Vista
         {
             InitializeComponent();
 
+            addProduct.Enabled = false;
+            UpdateList.Enabled = false;
+
             var listaperfiles = Controladora.ControladoraPerfiles.GetPerfiles();
             var listausuarios = Controladora.ControladoraUsuarios.GetUsuarios();
             Modelo.DTO.UsuariosDto UserLogeado = listausuarios.Find(x => x.Id == IdUserLog);
@@ -36,17 +39,22 @@ namespace Vista
             //verifico que sea usuario administrador
             if(UserLogeado.Perfil == profileAdmin)
             {
-
+                addProduct.Enabled = true;
+                UpdateList.Enabled = true;
             }
-
 
             try
             {
                List<Modelo.DTO.ProductosDto> listProducts = Controladora.ControladoraProductos.GetProducts();
                dgvProducts.DataSource = null;
                dgvProducts.DataSource = listProducts;
-                //agregar botones de + y - entre la columna de stock
-                putColumnsAddAndSubstract();
+
+                //verifico que sea admin
+                if (UserLogeado.Perfil == profileAdmin)
+                {
+                    //agregar botones de + y - entre la columna de stock
+                    putColumnsAddAndSubstract();
+                }
 
             }
             catch (Exception e)
